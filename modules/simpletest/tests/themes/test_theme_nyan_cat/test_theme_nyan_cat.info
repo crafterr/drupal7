@@ -1,0 +1,10 @@
+name = Nyan cat engine based test theme
+description = Theme for testing the module-provided theme engines.
+core = 7.x
+hidden = TRUE
+engine = nyan_cat
+
+; Information added by Drupal.org packaging script on 2018-09-11
+version = "7.59+25-dev"
+project = "drupal"
+datestamp = "1536699816"

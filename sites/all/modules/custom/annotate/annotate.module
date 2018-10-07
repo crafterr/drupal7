@@ -1,0 +1,69 @@
+<?php
+/** ​
+​ ​ ​ ​ ​ ​ ​* ​@file ​
+​ ​ ​ ​ ​ ​ ​* ​Moduł ​pozwala ​użytkownikom ​na ​dodawanie ​prywatnych ​przypisów ​do ​segmentów.
+​ ​ ​ ​ ​ ​ ​* ​
+​ ​ ​ ​ ​ ​ ​* ​Moduł ​dodaje ​pole ​tekstowe ​w ​momencie ​wyświetlenia ​segmentu.
+​ ​ ​ ​ ​ ​ ​* ​Dzięki ​temu ​zalogowani ​użytkownicy ​mogą ​dodawać ​przypisy. ​
+​ ​*/
+
+/**
+ * Implements hook_menu().
+ */
+function annotate_menu()
+{
+    $items = [];
+
+    $items['admin/config/annotate'] = array(
+        'title' => 'Przypis segmentu',
+        'description' => 'Dostosuj opcje przypisow segmentu',
+        'position'         => 'left',
+        'weight'           => -100,
+        'page callback'    => 'system_admin_menu_block_page',
+        'access arguments' => ['administer site configuration'],
+        'file'             => 'system.admin.inc',
+        'file path'        => drupal_get_path('module', 'system'),
+    );
+
+    $items['admin/config/annotate/settings'] = array(
+        'title' => 'Ustawienia ​przypisów',
+        'description' => 'Dostosuj sposob dzialania',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('annotate_admin_settings'),
+        'access arguments' => array('administer site configuration'),
+        'type' => MENU_NORMAL_ITEM,
+        'file' => 'annotate.admin.inc',
+
+    );
+
+    $items['admin/config/annotate/about'] = array(
+        'title' => 'O Przypisach',
+        'description' => 'Dowiedz się więcej o konfiguracji',
+        'page callback' => 'page_example_simple',
+        'access arguments' => array('administer site configuration'),
+        'type' => MENU_NORMAL_ITEM,
+        'file' => 'annotate.admin.about.inc',
+
+    );
+
+    return $items;
+}
+
+
+
+/**
+ * Implements hook_node_load().
+ */
+function annotate_node_load($nodes, $types)
+{
+    global $user;
+
+    //sprawdz czy osoba przeglądająca segment jest jego autorem jesli nie ukryj przypis
+    foreach ($nodes as $node)
+    {
+
+        if ($user->uid != $node->uid) {
+            unset($node->annotation);
+        }
+    }
+}

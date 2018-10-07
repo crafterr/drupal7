@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4ccee41-b7fc-4de8-aff9-9e268246b0a9" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DrupalConfiguration" enabled="true" version="7">
+    <drupalPath>$PROJECT_DIR$</drupalPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="annotate.admin.inc" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="field.info.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/field/field.info.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="626" column="68" lean-forward="false" selection-start-line="626" selection-start-column="56" selection-end-line="626" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotate.admin.about.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.about.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/bootstrap.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="1980" column="9" lean-forward="false" selection-start-line="1980" selection-start-column="9" selection-end-line="1980" selection-end-column="9" />
+              <folding>
+                <marker date="1536699512000" expanded="true" signature="29164:29229" ph="SELECT filen... system" />
+                <marker date="1536699512000" expanded="true" signature="41711:41745" ph="SELECT name,... variable" />
+                <marker date="1536699512000" expanded="true" signature="77385:77427" ph="SELECT 1 FRO... blocked_ips" />
+                <marker date="1536699512000" expanded="true" signature="107180:107235" ph="SELECT * FRO... languages" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotate.install" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.install">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotate.info" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.info">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotate.module" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="24" column="66" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="66" />
+              <folding>
+                <element signature="e#6#323#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="system.module" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/system/system.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10875">
+              <caret line="728" column="24" lean-forward="false" selection-start-line="728" selection-start-column="24" selection-end-line="728" selection-end-column="24" />
+              <folding>
+                <marker date="1536699512000" expanded="true" signature="61086:61130" ph="SELECT * FRO... blocked_ips" />
+                <marker date="1536699512000" expanded="true" signature="76655:76749" ph="SELECT mlid,... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="80232:80324" ph="SELECT filen... system" />
+                <marker date="1536699512000" expanded="true" signature="80903:80944" ph="SELECT * FRO... system" />
+                <marker date="1536699512000" expanded="true" signature="108888:108972" ph="SELECT fid F... file_managed" />
+                <marker date="1536699512000" expanded="true" signature="129509:129599" ph="SELECT df.df... date_formats" />
+                <marker date="1536699512000" expanded="true" signature="131010:131065" ph="SELECT forma... " />
+                <marker date="1536699512000" expanded="true" signature="132930:133015" ph="SELECT dft.t... date_format_type" />
+                <marker date="1536699512000" expanded="true" signature="136128:136322" ph="SELECT df.df... date_formats" />
+                <marker date="1536699512000" expanded="true" signature="140366:140444" ph="SELECT 1 FRO... date_format_locale" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/menu.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2085">
+              <caret line="142" column="8" lean-forward="false" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+              <folding>
+                <marker date="1536699512000" expanded="true" signature="15799:15871" ph="SELECT * FRO... menu_router" />
+                <marker date="1536699512000" expanded="true" signature="110697:110742" ph="SELECT * FRO... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="110823:110878" ph="SELECT * FRO... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="111497:111545" ph="SELECT mlid menu_links" />
+                <marker date="1536699512000" expanded="true" signature="114211:114256" ph="SELECT * FRO... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="120388:120433" ph="SELECT * FRO... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="122412:122485" ph="SELECT menu_... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="124593:124688" ph="SELECT * FRO... menu_links" />
+                <marker date="1536699512000" expanded="true" signature="132752:132841" ph="SELECT menu_... menu_links" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>administer</find>
+      <find>configu</find>
+      <find>administer site</find>
+      <find>'access arguments' =&gt; array('administer site configuration'),</find>
+      <find>admin.inc</find>
+      <find>$items['admin/config/</find>
+      <find>Shortcuts</find>
+      <find>system_admin_menu_block_page</find>
+      <find>field_name</find>
+      <find>annotate_admin_settings</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/modules</dir>
+      <dir>$PROJECT_DIR$/sites/all/modules/custom/annotate</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.info" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/test.install" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.install" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.category.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.about.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.inc" />
+      </list>
+    </option>
+  </component>
+  <component name="JoomlaConfiguration">
+    <joomlaConfigPath />
+    <joomlaPath />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="436" />
+    <option name="y" value="186" />
+    <option name="width" value="1851" />
+    <option name="height" value="1122" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="block" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="forum" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="custom" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="devel" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="devel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="krumo" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
+              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="system.admin.inc&#9;FILE&#9;file:///Applications/MAMP/htdocs/drupalkursy/drupal71/modules/system/system.admin.inc" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sites/all/modules/custom/annotate" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4ccee41-b7fc-4de8-aff9-9e268246b0a9" name="Default" comment="" />
+      <created>1538906237107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538906237107</updated>
+      <workItem from="1538906239396" duration="8499000" />
+      <workItem from="1538922875598" duration="6694000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15193000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="436" y="186" width="1851" height="1122" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25262576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="WordPressConfiguration">
+    <wordpressPath />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="58" column="31" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#323#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/system/system.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10920">
+          <caret line="728" column="24" lean-forward="false" selection-start-line="728" selection-start-column="24" selection-end-line="728" selection-end-column="24" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="61086:61130" ph="SELECT * FRO... blocked_ips" />
+            <marker date="1536699512000" expanded="true" signature="76655:76749" ph="SELECT mlid,... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="80232:80324" ph="SELECT filen... system" />
+            <marker date="1536699512000" expanded="true" signature="80903:80944" ph="SELECT * FRO... system" />
+            <marker date="1536699512000" expanded="true" signature="108888:108972" ph="SELECT fid F... file_managed" />
+            <marker date="1536699512000" expanded="true" signature="129509:129599" ph="SELECT df.df... date_formats" />
+            <marker date="1536699512000" expanded="true" signature="131010:131065" ph="SELECT forma... " />
+            <marker date="1536699512000" expanded="true" signature="132930:133015" ph="SELECT dft.t... date_format_type" />
+            <marker date="1536699512000" expanded="true" signature="136128:136322" ph="SELECT df.df... date_formats" />
+            <marker date="1536699512000" expanded="true" signature="140366:140444" ph="SELECT 1 FRO... date_format_locale" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="142" column="8" lean-forward="false" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="15799:15871" ph="SELECT * FRO... menu_router" />
+            <marker date="1536699512000" expanded="true" signature="110697:110742" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="110823:110878" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="111497:111545" ph="SELECT mlid menu_links" />
+            <marker date="1536699512000" expanded="true" signature="114211:114256" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="120388:120433" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="122412:122485" ph="SELECT menu_... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="124593:124688" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="132752:132841" ph="SELECT menu_... menu_links" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/forum/forum.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/block/block.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/node/node.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="392" column="9" lean-forward="false" selection-start-line="392" selection-start-column="9" selection-end-line="392" selection-end-column="9" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="12013:12076" ph="SELECT times... " />
+            <marker date="1536699512000" expanded="true" signature="18272:18316" ph="SELECT 1 FRO... node_type" />
+            <marker date="1536699512000" expanded="true" signature="54014:54041" ph="SELECT COUNT... node" />
+            <marker date="1536699512000" expanded="true" signature="54084:54217" ph="SELECT COUNT... node" />
+            <marker date="1536699512000" expanded="true" signature="59998:60046" ph="SELECT vid F... node_revision" />
+            <marker date="1536699512000" expanded="true" signature="62900:62955" ph="SELECT COUNT... node_revision" />
+            <marker date="1536699512000" expanded="true" signature="71994:72037" ph="SELECT chang... node" />
+            <marker date="1536699512000" expanded="true" signature="72344:72558" ph="SELECT r.vid... node_revision" />
+            <marker date="1536699512000" expanded="true" signature="75207:75267" ph="SELECT nid F... node" />
+            <marker date="1536699512000" expanded="true" signature="78197:78273" ph="SELECT type block_node_type" />
+            <marker date="1536699512000" expanded="true" signature="81018:81067" ph="SELECT modul... " />
+            <marker date="1536699512000" expanded="true" signature="90021:90185" ph="SELECT n.nid... node" />
+            <marker date="1536699512000" expanded="true" signature="121191:121231" ph="SELECT nid F... node" />
+            <marker date="1536699512000" expanded="true" signature="122669:122698" ph="SELECT COUNT... node" />
+            <marker date="1536699512000" expanded="true" signature="122794:122850" ph="SELECT nid F... node" />
+            <marker date="1536699512000" expanded="true" signature="131518:131559" ph="SELECT name users" />
+            <marker date="1536699512000" expanded="true" signature="132312:132340" ph="SELECT COUNT... users" />
+            <marker date="1536699512000" expanded="true" signature="132444:132485" ph="SELECT name users" />
+            <marker date="1536699512000" expanded="true" signature="132698:132755" ph="SELECT uid, users" />
+            <marker date="1536699512000" expanded="true" signature="133577:133617" ph="SELECT 1 FRO... users" />
+            <marker date="1536699512000" expanded="true" signature="134049:134091" ph="SELECT uid f... users" />
+            <marker date="1536699512000" expanded="true" signature="136304:136338" ph="SELECT COUNT... node_access" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/forum/forum.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="659" column="32" lean-forward="false" selection-start-line="659" selection-start-column="25" selection-end-line="659" selection-end-column="32" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="12959:13025" ph="SELECT 1 FRO... taxonomy_term_data" />
+            <marker date="1536699512000" expanded="true" signature="13965:14068" ph="SELECT f.tid... forum" />
+            <marker date="1536699512000" expanded="true" signature="14584:14622" ph="SELECT tid F... forum" />
+            <marker date="1536699512000" expanded="true" signature="45938:45991" ph="SELECT nid, " />
+            <marker date="1536699512000" expanded="true" signature="47290:47410" ph="SELECT COUNT... comment" />
+            <marker date="1536699512000" expanded="true" signature="47574:47675" ph="SELECT cid, comment" />
+            <marker date="1536699512000" expanded="true" signature="48043:48091" ph="SELECT uid, node" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/locale/locale.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="213" column="64" lean-forward="true" selection-start-line="213" selection-start-column="26" selection-end-line="213" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/forum/forum.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/system/system.admin.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="142" column="8" lean-forward="false" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="15799:15871" ph="SELECT * FRO... menu_router" />
+            <marker date="1536699512000" expanded="true" signature="110697:110742" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="110823:110878" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="111497:111545" ph="SELECT mlid menu_links" />
+            <marker date="1536699512000" expanded="true" signature="114211:114256" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="120388:120433" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="122412:122485" ph="SELECT menu_... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="124593:124688" ph="SELECT * FRO... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="132752:132841" ph="SELECT menu_... menu_links" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/system/system.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10875">
+          <caret line="728" column="24" lean-forward="false" selection-start-line="728" selection-start-column="24" selection-end-line="728" selection-end-column="24" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="61086:61130" ph="SELECT * FRO... blocked_ips" />
+            <marker date="1536699512000" expanded="true" signature="76655:76749" ph="SELECT mlid,... menu_links" />
+            <marker date="1536699512000" expanded="true" signature="80232:80324" ph="SELECT filen... system" />
+            <marker date="1536699512000" expanded="true" signature="80903:80944" ph="SELECT * FRO... system" />
+            <marker date="1536699512000" expanded="true" signature="108888:108972" ph="SELECT fid F... file_managed" />
+            <marker date="1536699512000" expanded="true" signature="129509:129599" ph="SELECT df.df... date_formats" />
+            <marker date="1536699512000" expanded="true" signature="131010:131065" ph="SELECT forma... " />
+            <marker date="1536699512000" expanded="true" signature="132930:133015" ph="SELECT dft.t... date_format_type" />
+            <marker date="1536699512000" expanded="true" signature="136128:136322" ph="SELECT df.df... date_formats" />
+            <marker date="1536699512000" expanded="true" signature="140366:140444" ph="SELECT 1 FRO... date_format_locale" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/block/block.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/forum/forum.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/test.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/bootstrap.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="1980" column="9" lean-forward="false" selection-start-line="1980" selection-start-column="9" selection-end-line="1980" selection-end-column="9" />
+          <folding>
+            <marker date="1536699512000" expanded="true" signature="29164:29229" ph="SELECT filen... system" />
+            <marker date="1536699512000" expanded="true" signature="41711:41745" ph="SELECT name,... variable" />
+            <marker date="1536699512000" expanded="true" signature="77385:77427" ph="SELECT 1 FRO... blocked_ips" />
+            <marker date="1536699512000" expanded="true" signature="107180:107235" ph="SELECT * FRO... languages" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.about.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="24" column="66" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="66" />
+          <folding>
+            <element signature="e#6#323#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/field/field.info.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="626" column="68" lean-forward="false" selection-start-line="626" selection-start-column="56" selection-end-line="626" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/annotate/annotate.admin.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
