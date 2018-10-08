@@ -8,35 +8,93 @@ function beep_beep()
     watchdog('beep','Bip!');
 }
 
-/**
- * Obsługa funkcji hook_user_login
- */
+
+
 
 /**
- * Implements hook_user_login().
+ * wybierz wyzwalacze ktore maja byc powiazane z dzialaniem
+ * Implements hook_action_info().
  */
-function beep_user_login(&$edit, $account)
+function beep_action_info()
+{
+    return [
+      'beep_single_beep_action' => [
+          'type' => 'system',
+          'label' => t('Uporczywe brzęczenie'),
+          'configurable' => false,
+          'triggers' => [
+              'node_view','node_insert','node_update','node_delete',
+              //'any'
+          ]
+      ],
+      'beep_multiple_beep_action' => [
+          'type' => 'system',
+          'label' => t('Brzeczenie wielokrotne'),
+          'configurable' => true,
+          'triggers' => [
+             'node_view','node_insert','node_update','node_delete',
+
+          ]
+      ]
+    ];
+}
+
+/**
+ * Formularz ​konfigurowalnego ​działania ​— ​wielokrotne ​bipnięcie.
+ */
+function beep_multiple_beep_action_form($context)
+{
+    $form['beeps'] = [
+        '#type' => 'textfield',
+        '#title' => t('Liczba bipnięć'),
+        '#description' => t('Wprowadz liczbę bipnięc'),
+        '#default_value' => isset($context['beeps'])?$context['beeps']:'1',
+        '#required' => true
+    ];
+    return $form;
+}
+
+/**
+ * walidacja forma
+ */
+function beep_multiple_beep_action_validate($form,$form_state)
+{
+    $beeps = $form_state['values']['beeps'];
+
+    if ((int) $beeps<0 && $beeps>10) {
+        form_set_error('beeps',t('Wprowadź liczbę całkowitą od 0..1'));
+    }
+    else if ((int) $beeps>10) {
+        form_set_error('beeps',t('Nie przesadzaj max to 10'));
+    }
+    else if ((int) $beeps <0) {
+        form_set_error('beeps',t('Liczba nie moze byc mniejsza od 0'));
+    }
+
+}
+
+function beep_multiple_beep_action_submit($form, $form_state)
+{
+    return [
+        'beeps' => (int) $form_state['values']['beeps']
+    ];
+}
+
+
+
+/**
+ * symuluj bipniecie.
+ */
+function beep_single_beep_action()
 {
     beep_beep();
 }
 
-/**
- * Implements hook_node_insert().
- */
-function beep_node_insert($node)
+function beep_multiple_beep_action($object, $context)
 {
-    beep_beep();
+    dpm($context);
+    for ($i=0; $i< $context['beeps']; $i++) {
+        beep_beep();
+    }
 }
 
-function beep_help($path, $arg) {
-
-            $output = '<h3>' . t('About') . '</h3>';
-            $output .= '<p>' . t('The Toolbar module displays links to top-level administration menu items and links from other modules at the top of the screen. For more information, see the online handbook entry for <a href="@toolbar">Toolbar module</a>.', array('@toolbar' => 'http://drupal.org/documentation/modules/toolbar/')) . '</p>';
-            $output .= '<h3>' . t('Uses') . '</h3>';
-            $output .= '<dl>';
-            $output .= '<dt>' . t('Displaying administrative links') . '</dt>';
-            $output .= '<dd>' . t('The Toolbar module displays a bar containing top-level administrative links across the top of the screen. Below that, the Toolbar module has a <em>drawer</em> section where it displays links provided by other modules, such as the core <a href="@shortcuts-help">Shortcut module</a>. The drawer can be hidden/shown by using the show/hide shortcuts link at the end of the toolbar.', array('@shortcuts-help' => url('admin/help/shortcut'))) . '</dd>';
-            $output .= '</dl>';
-            return $output;
-
-}

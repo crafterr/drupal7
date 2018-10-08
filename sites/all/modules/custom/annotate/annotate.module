@@ -67,3 +67,31 @@ function annotate_node_load($nodes, $types)
         }
     }
 }
+
+
+/**
+ * Dodanie nowego triggera dla
+ */
+/**
+ * Implements annotate_trigger_info().
+ *
+ * Defines all the triggers that this module implements triggers for.
+ */
+function annotate_trigger_info() {
+    return [
+      'annotate' => [
+          'annotate_insert' => [
+              'label' => t('Po utworzeniu nowych przypisów')
+          ],
+          'annotate_update' => [
+              'label' => t('Po zapisaniu zmodyfikowanych przypisow')
+          ],
+          'annotate_delete' => [
+              'label' => t('Po usunieciu przypisow')
+          ],
+          'annotate_view' => [
+              'label' => t('Przy przeglądaniu przez zalogowanego usera')
+          ]
+      ]
+    ];
+}
