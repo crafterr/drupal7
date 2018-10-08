@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Funkcja symuluje bipniecie przez zapis komunikatu do dziennika Drupala
+ */
+function beep_beep()
+{
+    watchdog('beep','Bip!');
+}
+
+/**
+ * Obsługa funkcji hook_user_login
+ */
+
+/**
+ * Implements hook_user_login().
+ */
+function beep_user_login(&$edit, $account)
+{
+    beep_beep();
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function beep_node_insert($node)
+{
+    beep_beep();
+}
+
+function beep_help($path, $arg) {
+
+            $output = '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('The Toolbar module displays links to top-level administration menu items and links from other modules at the top of the screen. For more information, see the online handbook entry for <a href="@toolbar">Toolbar module</a>.', array('@toolbar' => 'http://drupal.org/documentation/modules/toolbar/')) . '</p>';
+            $output .= '<h3>' . t('Uses') . '</h3>';
+            $output .= '<dl>';
+            $output .= '<dt>' . t('Displaying administrative links') . '</dt>';
+            $output .= '<dd>' . t('The Toolbar module displays a bar containing top-level administrative links across the top of the screen. Below that, the Toolbar module has a <em>drawer</em> section where it displays links provided by other modules, such as the core <a href="@shortcuts-help">Shortcut module</a>. The drawer can be hidden/shown by using the show/hide shortcuts link at the end of the toolbar.', array('@shortcuts-help' => url('admin/help/shortcut'))) . '</dd>';
+            $output .= '</dl>';
+            return $output;
+
+}

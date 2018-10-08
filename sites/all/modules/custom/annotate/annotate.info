@@ -1,6 +1,6 @@
 name = Przypisy
-​description ​= ​Moduł ​pozwala ​na ​tworzenie ​przypisów
-package ​= ​Drupal ​7. ​Zaawansowane ​programowanie.
+description = Moduł ​pozwala ​na ​tworzenie ​przypisów
+package = Drupal ​7. ​Zaawansowane ​programowanie.
 core = 7.x
 ​files[] ​= ​annotate.module
 ​​files[] ​= ​annotate.install

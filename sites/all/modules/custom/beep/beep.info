@@ -1,0 +1,6 @@
+name = Brzęczyk
+description = Brzęczyk jakiś
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+version = "7.59+25-dev"
+​files[] ​= beep.module
