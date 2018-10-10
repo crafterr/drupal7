@@ -1,0 +1,5 @@
+name = Mleczny shake
+description = Przykład działania lokalnych zadań menu
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = milkshake.module

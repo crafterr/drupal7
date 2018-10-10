@@ -1,0 +1,104 @@
+<?php
+/**
+ * @file
+ * Skorzystaj z tego modulu aby poznac dzialanie systemu menu drupala a w szczegolnosci lokalnych zadan
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function milkshake_menu()
+{
+    $items['milkshake'] = [
+      'title' => 'Smaki shakea',
+      'access callback' => true,
+      'page callback' => 'milkshake_overview',
+      'type' => MENU_NORMAL_ITEM
+    ];
+
+    $items['milkshake/list'] = [
+      'title' => 'Lista smaków',
+      'access callback' => true,
+      'type' => MENU_DEFAULT_LOCAL_TASK,
+      'weight' => 0
+    ];
+
+    $items['milkshake/add'] = [
+      'title' => 'Dodaj smak',
+      'access callback' => true,
+      'page callback' => 'drupal_get_form',
+
+      'page arguments' => array('milkshake_add'),
+      'type' => MENU_LOCAL_TASK,
+      'weight' => 1
+
+    ];
+
+
+
+    $items['milkshake/list/fruity'] = [
+        'title' => 'Smaki owocowe',
+        'access callback' => true,
+        'page callback' => 'milkshake_list',
+        'type' => MENU_LOCAL_TASK,
+        'page arguments' => [2]
+
+    ];
+
+    $items['milkshake/list/candy'] = [
+        'title' => 'Smaki cukierokowe',
+        'access callback' => true,
+        'page callback' => 'milkshake_list',
+        'type' => MENU_LOCAL_TASK,
+        'page arguments' => [2]
+
+    ];
+
+    return $items;
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * @return mixed
+ */
+function milkshake_add($form, &$form_state)
+{
+
+    $form['firstname'] = array(
+        '#type' => 'textfield', //you can find a list of available types in the form api
+        '#title' => 'What is Name',
+        '#size' => 10,
+        '#maxlength' => 10,
+        '#required' => TRUE, //make this field required
+    );
+
+    $form['submit_button'] = array(
+        '#type' => 'submit',
+        '#value' => t('Click Here!'),
+    );
+
+    return $form;
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ */
+function milkshake_add_validate($form, &$form_state) {
+}
+
+function milkshake_add_submit($form, &$form_state) {
+    dpm($form_state['values']['firstname']);
+}
+
+function milkshake_overview()
+{
+    return t('Oto dostępne smaki');
+}
+
+function milkshake_list($type)
+{
+    return t('Lista smaków @type',['@type'=>$type]);
+
+}
