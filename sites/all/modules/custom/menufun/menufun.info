@@ -1,0 +1,5 @@
+name = Zabawa z menu
+description = Poznajemy system menu
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = menufun.module

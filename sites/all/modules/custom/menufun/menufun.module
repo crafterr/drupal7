@@ -1,0 +1,116 @@
+<?php
+/**
+ * @file
+ * Ten modul pomoze nam poznac tajniki systemu menu drupala
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function menufun_menu()
+{
+    $items['menufun'] = [
+      'title' => 'Zabawa z menu',
+      'title callback' => 'menufun_title',
+      'page callback' => 'menufun_greeting',
+      'access callback' => 'user_access',
+      'access arguments' => ['receive greeting'],
+      'page arguments' => [1],
+      'type' => MENU_NORMAL_ITEM,
+      'weight' => -1,
+      'file' => 'menufun_greeting.inc'
+    ];
+
+    $items['menufun/farewell'] = [
+      'title' => 'Pożegnaniee',
+      'page callback' => 'menufun_farewell',
+      'file' => 'menufun_greeting.inc',
+      'access callback' => 'user_access',
+      'access arguments' => ['receive greeting'],
+      'type' => MENU_NORMAL_ITEM,
+      'weight' => -2,
+    ];
+
+    $items['menufun2/%a_zoo_animal'] = [
+        'title' => 'Nowe menu',
+        'page callback' => 'menufun2_hello',
+        'access callback' => 'user_access',
+        'page arguments' => [1],
+        'access arguments' => ['receive greeting'],
+        'type' => MENU_NORMAL_ITEM,
+        'weight' => -3
+
+    ];
+
+
+    return $items;
+}
+
+/**
+ * Implements hook_menu_link_alter().
+ * Poniższy hook powienien byc stosowany tylko do zminy tytulu lub hiperlacza jezeli chcesz zmienic wywylanie zwrotne wtedy tylko hook_menu_alter
+ */
+function menufun_menu_link_alter(&$item)
+{
+    if ($item['link_path']=='user/logout') {
+        $item['link_title'] = 'Zakończ prace';
+    }
+    if ($item['link_path']=='menufun/farewell') {
+        $item['link_title'] = 'Dupa';
+    }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function menufun_menu_alter(&$items)
+{
+    //zmiana wywolania zwrotnego strony user_logout na wlasne
+    $items['user/logout']['title'] = 'haha';
+    $items['logout']['page callback'] = 'menufun_user_logout';
+    //drupal nie musi ladowac pliku user.pages.inc z klucza file
+    unset($items['logout']['file']);
+
+
+}
+
+/**
+ * wywolanie zwrotne ktore wyloguje i przekieruje na drupal.org
+ */
+function menufun_user_logout()
+{
+    global $user;
+    watchdog('menufun','Usunięto seesję użytkownika %name',['%name'=>$user->name]);
+    session_destroy();
+    module_invoke_all('user','logout', $user);
+    $user = drupal_anonymous_user();
+    drupal_goto('http://drupal.org/');
+
+}
+
+function menufun2_hello($arg='')
+{
+    return t('Witaj: @arg',['@arg'=>$arg]);
+}
+
+function a_zoo_animal_to_arg($arg)
+{
+    return 'tygrys';
+}
+
+
+
+/**
+ * Implements hook_permission().
+ */
+function menufun_permission()
+{
+    return [
+      'receive greeting' => [
+          'title' => t('Przyjmij pozdrowienia'),
+          'description' => t('Użytkownicy mogą otrzymywać pozdrowienia')
+      ]
+    ];
+}
+
+
