@@ -1,0 +1,5 @@
+name = Tabela królików
+description = Poznajemy system db
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = bunny.module

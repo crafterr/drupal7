@@ -1,0 +1,103 @@
+<?php
+/**
+ * @file
+ *
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function bunny_schema()
+{
+    $schema['bunnies'] = [
+      'description' => t('Przechowuje informacje o królikach'),
+      'fields' => [
+          'bid' => [
+              'type' => 'serial',
+              'unsigned' => true,
+              'not null' => true,
+              'description' => t('Klucz główny id krolika')
+          ],
+          'name' => [
+              'type' => 'varchar',
+              'length' => 64,
+              'not null' => true,
+              'description' => t('Każdy królik ma swoje imie')
+          ],
+          'tons' => [
+              'type' => 'int',
+              'unsigned' => true,
+              'not null' => true,
+              'description' => t('waga królika')
+          ]
+      ],
+    'primary key' => ['bid'],
+    'indexes' => [
+        'tons' => ['tons']
+        ]
+    ];
+    return $schema;
+}
+
+
+/**
+ * Implements hook_menu().
+ */
+function bunny_menu()
+{
+    $items['bunny'] = [
+        'title' => 'Farma królików',
+        'access callback' => true,
+        'page callback' => 'bunny_overview',
+        'type' => MENU_NORMAL_ITEM
+    ];
+
+    $items['bunny/list'] = [
+        'title' => 'Lista królików',
+        'access callback' => true,
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+        'weight' => 0
+    ];
+
+    $items['bunny/add'] = [
+        'title' => 'Dodaj królika',
+        'access callback' => true,
+        'page callback' => 'bunny_add',
+
+        'type' => MENU_LOCAL_TASK,
+        'weight' => 1
+
+    ];
+
+    return $items;
+
+}
+
+function bunny_overview()
+{
+    $query = db_select('bunnies','b');
+
+    $query->fields('b',['name','bid','tons']);
+    $query->orderBy('name','asc');
+    $query = $query->extend('PagerDefault')->limit(5);
+
+    $result = $query->execute();
+    $output = null;
+    foreach ($result as $row) {
+        $output .= $row->bid.' - '.$row->name.' waga: '.$row->tons.' <br>';
+    }
+    $output .= theme('pager');
+    return $output;
+}
+
+function bunny_add()
+{
+    $table = 'bunnies';
+    $record = new stdClass();
+    $record->name = 'Królik'.rand(0,1000);
+    $record->tons = rand(1,10);
+    drupal_write_record($table,$record);
+    watchdog('bunny','Dodano nowego królika o id %id',['%id'=>$record->bid]);
+    drupal_goto('bunny/list');
+    return t('dodaje królika');
+}

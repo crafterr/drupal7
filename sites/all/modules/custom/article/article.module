@@ -1,0 +1,67 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function article_menu()
+{
+    $items['article'] = [
+        'title' => 'Artykuly i Strony statyczne',
+        'access callback' => true,
+        'page callback' => 'article_overview',
+        'type' => MENU_NORMAL_ITEM
+    ];
+
+    $items['article/list'] = [
+        'title' => 'Lista nodów',
+        'access callback' => true,
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+        'weight' => 0
+    ];
+
+    $items['article/list/article'] = [
+        'title' => 'Artykuły',
+        'access callback' => true,
+        'page callback' => 'node_list',
+        'type' => MENU_LOCAL_TASK,
+        'page arguments' => [2],
+        'weight'=> 2
+
+    ];
+
+    $items['article/list/page'] = [
+        'title' => 'Strony statyczne',
+        'access callback' => true,
+        'page callback' => 'node_list',
+        'type' => MENU_LOCAL_TASK,
+        'page arguments' => [2],
+        'weight' => 1
+    ];
+
+    return $items;
+}
+
+function node_list($type)
+{
+    $status = 1;
+
+    $query = db_select('node','n');
+
+    $query->condition('type',$type);
+    $query->condition('status',$status);
+    $query->fields('n',['title','nid']);
+    $query->orderBy('title','asc');
+    $query = $query->extend('PagerDefault')->limit(5);
+
+    $result = $query->execute();
+    $output = null;
+    foreach ($result as $row) {
+        $output .= $row->title.' <br>';
+    }
+    $output .= theme('pager');
+    return $output;
+}
+
+function article_overview()
+{
+    return t('Wybierz type');
+}

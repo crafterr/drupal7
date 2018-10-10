@@ -1,0 +1,5 @@
+name = Zabawa z nodami
+description = Poznajemy system db
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = article.module
