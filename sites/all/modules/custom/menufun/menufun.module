@@ -55,8 +55,16 @@ function menufun_menu_link_alter(&$item)
     if ($item['link_path']=='user/logout') {
         $item['link_title'] = 'Zakończ prace';
     }
+    if ($item['link_path']=='user') {
+        $item['link_title'] = 'Moje konto';
+    }
     if ($item['link_path']=='menufun/farewell') {
         $item['link_title'] = 'Dupa';
+    }
+
+    //ukryj lacze dodaj zawartosc
+    if ($item['link_path'] == 'node/add') {
+      //  $item['hidden'] = 1;
     }
 }
 
