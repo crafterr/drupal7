@@ -71,6 +71,14 @@ function milkshake_add($form, &$form_state)
         '#size' => 10,
         '#maxlength' => 10,
         '#required' => TRUE, //make this field required
+        '#disabled' => true
+    );
+    $form['lastname'] = array(
+        '#type' => 'textfield', //you can find a list of available types in the form api
+        '#title' => 'What is Surname',
+        '#size' => 10,
+        '#maxlength' => 10,
+        '#required' => TRUE, //make this field required
     );
 
     $form['submit_button'] = array(
@@ -86,10 +94,14 @@ function milkshake_add($form, &$form_state)
  * @param $form_state
  */
 function milkshake_add_validate($form, &$form_state) {
+
+    if ($form_state['values']['firstname']=='Adam') {
+        form_set_error("firstname",t("Podałes nieprawidłowe imie"));
+    }
 }
 
 function milkshake_add_submit($form, &$form_state) {
-    dpm($form_state['values']['firstname']);
+    dpm($form_state['values']);
 }
 
 function milkshake_overview()

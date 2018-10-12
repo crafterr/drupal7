@@ -1,0 +1,19 @@
+<?php
+/**
+ * @file
+ * Main module file for the vardumper_console module.
+ */
+
+/**
+ * API aliases.
+ */
+function vardumperConsole($var, $name = '') {
+  vardumper($var, $name, 'console');
+}
+
+/**
+ * API aliases.
+ */
+function vdpc($var, $name = '') {
+  vardumper($var, $name, 'console');
+}

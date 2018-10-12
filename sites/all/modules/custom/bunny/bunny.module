@@ -4,40 +4,7 @@
  *
  */
 
-/**
- * Implements hook_schema().
- */
-function bunny_schema()
-{
-    $schema['bunnies'] = [
-      'description' => t('Przechowuje informacje o królikach'),
-      'fields' => [
-          'bid' => [
-              'type' => 'serial',
-              'unsigned' => true,
-              'not null' => true,
-              'description' => t('Klucz główny id krolika')
-          ],
-          'name' => [
-              'type' => 'varchar',
-              'length' => 64,
-              'not null' => true,
-              'description' => t('Każdy królik ma swoje imie')
-          ],
-          'tons' => [
-              'type' => 'int',
-              'unsigned' => true,
-              'not null' => true,
-              'description' => t('waga królika')
-          ]
-      ],
-    'primary key' => ['bid'],
-    'indexes' => [
-        'tons' => ['tons']
-        ]
-    ];
-    return $schema;
-}
+
 
 
 /**
@@ -75,6 +42,11 @@ function bunny_menu()
 
 function bunny_overview()
 {
+    global $user;
+    $output = null;
+    if (user_is_logged_in()) {
+        $output = 'Witaj: ' . $user->name . '<br />';
+    }
     $query = db_select('bunnies','b');
 
     $query->fields('b',['name','bid','tons']);
@@ -82,7 +54,7 @@ function bunny_overview()
     $query = $query->extend('PagerDefault')->limit(5);
 
     $result = $query->execute();
-    $output = null;
+
     foreach ($result as $row) {
         $output .= $row->bid.' - '.$row->name.' waga: '.$row->tons.' <br>';
     }
@@ -92,6 +64,7 @@ function bunny_overview()
 
 function bunny_add()
 {
+    //add new record
     $table = 'bunnies';
     $record = new stdClass();
     $record->name = 'Królik'.rand(0,1000);
@@ -100,4 +73,10 @@ function bunny_add()
     watchdog('bunny','Dodano nowego królika o id %id',['%id'=>$record->bid]);
     drupal_goto('bunny/list');
     return t('dodaje królika');
+
+
+    //edit record
+
+    //$record->name = 'jakies zmienione imie';
+    //drupal_write_record($table,$record,'bid');
 }

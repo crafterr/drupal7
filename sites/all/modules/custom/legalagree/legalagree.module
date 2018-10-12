@@ -1,0 +1,63 @@
+<?php
+/**
+ * @file
+ * Wyswietla umowe podczas rejestracji usera
+ *
+ * Jeśli chcesz rozszerzyć formularz rejestracji użytkownika,
+ * aby można było pobierać informacje od użytkowników, powinieneś zapoznać się z modułem profile.module,
+ * zanim zaczniesz w tym celu tworzyć własny moduł. Moduł profile.module pozwala na opracowanie dowolnych formularzy do zbierania danych od użytkowników,
+ * określanie informacji wymaganych, zdefiniowanie elementów widocznych w formularzu rejestracji użytkownika i określanie, które informacje są publiczne lub prywatne.
+ * Dodatkowo moduł ten pozwala administratorowi na tworzenie stron, a wtedy możliwe jest filtrowanie użytkowników po wartościach określonych w profilu za pomocą adresów URL o następującej budowie:
+ * URL_witryny + profile/ + nazwa pola witryny + wartość.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function legalagree_form_alter(&$form, &$form_state, $form_id)
+{
+    //sprawdz czy jest to formularz rejestracyjny czy nie
+    if (!($form_id == 'user_register_form' || $form_id=='user_profile_form'))
+    {
+       return;
+    }
+    else
+    {
+        //dodaj nowa funkcje walidacji do form usera w celu obslugi umowy
+        $form['#validate'][] = 'legalagree_user_form_validate';
+        //dodaj nowe pole przechowywania umowy
+        $form['account']['legal_agreement'] = [
+          '#type' => 'fieldset',
+          '#title' => t('Umowa')
+        ];
+
+        //Dodaj przyciski typu radio związane z umową
+        $form['account']['legal_agreeement']['dicision'] = [
+          '#type' => 'radios',
+          '#description' => t('Rejestrując się w serwisie %site-name, zgadzasz się na nawiedzenie Twojego miejsca zamieszkania przez nas lub naszych poplecznikow',
+                            ['%site-name'=>variable_get('site_name','drupal')
+
+                            ]),
+          '#default_value' => 0,
+          '#options' => [t('Nie zgadzam się'),t('Zgadzam się')]
+        ];
+
+
+    }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ * Funkcja walidacji formluarza dla aktualnego hasla (hak_account_form)
+ */
+function legalagree_user_form_validate($form,&$form_state)
+{
+    global $user;
+
+    if ($form_state['input']['dicision']<>1) {
+        form_set_error('dicision',t('Musisz zaakceptować warunki umowy przed zakończeniem procesu rejestracji'));
+    } else {
+        watchdog('user',t('Użytkownik %user zaakceptował zgodę warunki umowy',['%user'=>(isset($user->name))?$user->name:'niezalogowany']));
+    }
+}

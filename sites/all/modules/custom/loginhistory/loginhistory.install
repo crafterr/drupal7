@@ -1,0 +1,31 @@
+<?php
+/**
+ * Implementacja haka hook_schema()
+ */
+function loginhistory_schema()
+{
+    $schema['login_history'] =
+    [
+        'description' => 'Przechowuje informacje o logowaniu użytkowników',
+        'fields' =>
+        [
+            'uid' => [
+                'type' => 'int',
+                'unsigned' => true,
+                'not null' => true,
+                'description' => '{user}.uid logoującego się usera'
+            ],
+            'login' => [
+                'type' => 'int',
+                'unsigned' => true,
+                'not null' => true,
+                'description' => 'Uniksowy znacznik czasu określający datę i czas logowania'
+            ]
+        ],
+        'indexes' => [
+            'uid' => ['uid']
+        ]
+    ];
+
+    return $schema;
+}

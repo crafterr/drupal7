@@ -1,0 +1,31 @@
+<?php
+
+
+function markednode_install()
+{
+    $field = [
+        'type' => 'int',
+        'unsigned' => true,
+        'not null' => true,
+        'default' =>0,
+        'initial' => 0,
+        'description' => t('Określa czy segment został oznaczony przez moduł markednode')
+    ];
+
+    $keys['indexes'] = [
+        'marked' => ['marked']
+    ];
+
+    db_add_field('node','marked',$field,$keys);
+}
+
+function markednode_schema_alter(&$schema)
+{
+    $schema['node']['fields']['marked'] = [
+        'type' => 'int',
+        'unsigned' => true,
+        'not null' => true,
+        'default' =>0,
+        'description' => t('Określa czy segment został oznaczony przez moduł markednode')
+    ];
+}

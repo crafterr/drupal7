@@ -1,0 +1,51 @@
+<?php
+/**
+ * @file
+ * Przechowuje informacje o logowaniu usera
+ */
+
+/**
+ * Implements hook_user_login().
+ */
+function loginhistory_user_login(&$edit, $account)
+{
+    //Wstaw nowy rekord przy kazdym logownaiu dowolnego usera
+    $nid = db_insert('login_history')->fields([
+       'uid' => $account->uid,
+       'login' => $account->login
+    ]);
+    $nid->execute();
+}
+
+/**
+ * Implements hook_user_view_alter().
+ */
+function loginhistory_user_view_alter(&$build)
+{
+    global $user;
+
+    //zlicz liczbe logowan usera
+    $login_count = db_query('select count(*) from {login_history} where uid = :uid',[':uid'=>$user->uid]);
+    $logincount = $login_count->fetchField();
+
+    //zaktualizuj strone usera dodajac do niej liczbe logowan
+    $build['summary']['login_history'] =
+    [
+        '#type' => 'user_profile_item',
+        '#title' => t('Historia logowań'),
+        '#markup' => $logincount,
+        '#weight' => 10
+    ];
+
+    $build['summary']['myparam'] =
+    [
+       '#type' => 'user_profile_item',
+       '#title' => t('Moja wartosc'),
+       '#markup' => 'adma ma kota',
+       '#weight' => 20
+    ];
+
+   /* echo '<pre>';
+    var_dump($build);
+    echo '</pre>';*/
+}

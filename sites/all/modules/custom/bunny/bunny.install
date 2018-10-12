@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function bunny_schema()
+{
+    $schema['bunnies'] = [
+        'description' => t('Przechowuje informacje o królikach'),
+        'fields' => [
+            'bid' => [
+                'type' => 'serial',
+                'unsigned' => true,
+                'not null' => true,
+                'description' => t('Klucz główny id krolika')
+            ],
+            'name' => [
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => true,
+                'description' => t('Każdy królik ma swoje imie')
+            ],
+            'tons' => [
+                'type' => 'int',
+                'unsigned' => true,
+                'not null' => true,
+                'description' => t('waga królika')
+            ]
+        ],
+        'primary key' => ['bid'],
+        'indexes' => [
+            'tons' => ['tons']
+        ]
+    ];
+    return $schema;
+}

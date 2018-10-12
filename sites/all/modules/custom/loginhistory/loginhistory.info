@@ -1,0 +1,6 @@
+name = Historia logowania
+description = Pozwala rejestrowac lgoowanie uzytkownikow
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = loginhistory.module
+files[] = loginhistory.install
