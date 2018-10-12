@@ -1,0 +1,5 @@
+name = Uwierzytelnienie Davewow
+description = Zewnetrzne uwierzytelnienie dla wszystkich Daveow
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+​files[] ​= authdave.module

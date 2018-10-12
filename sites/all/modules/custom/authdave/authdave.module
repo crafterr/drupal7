@@ -1,0 +1,62 @@
+<?php
+/**
+ * @file
+ * Implementacja haka hook_form_alter()
+ * Zastepujemy funkcje walidacji logowania wlasna funkcja
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function authdave_form_alter(&$form, &$form_state, $form_id)
+{
+
+    //check if dave begin
+    if ($form_id=='user_login' || $form_id=='user_login_block') {
+        $form['#validate'][] = 'authdave_user_form_validate';
+    }
+}
+
+function authdave_user_form_validate($form, &$form_state)
+{
+
+    if (!authdave_authenticate($form_state)) {
+        form_set_error('name',t('Nie rozpoznano nazwy usera'));
+    } else {
+        drupal_goto('user');
+    }
+}
+
+/**
+ * @param $form_state
+ * @return bool
+ */
+function authdave_authenticate($form_state)
+{
+    global $authdave_authenticated;
+    $authdave_authenticated = 'authdave_authenticated';
+    $input = $form_state['input']['name'];
+    $daveName = drupal_substr(drupal_strtolower($input),0,4);
+
+    if ($daveName=='dave') {
+
+        user_external_login_register($input,'authdave');
+        return true;
+    }
+    return false;
+
+}
+
+function authdave_user_insert(&$edit,&$account)
+{
+    global $authdave_authenticated;
+    if ($authdave_authenticated) {
+        $email = $account->name.'@onet.pl';
+
+        //ustaw adres email dla tego usera
+        db_update('users')->fields([
+            'mail' => $email
+        ])->condition('uid',$account->uid)
+            ->execute();
+    }
+}

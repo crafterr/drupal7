@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4ccee41-b7fc-4de8-aff9-9e268246b0a9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/bunny/bunny.install" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.info" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.module" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.info" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.install" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.module" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/markednode/markednode.info" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/markednode/markednode.install" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/markednode/markednode.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.module" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/bunny/bunny.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/bunny/bunny.module" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/milkshake/milkshake.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/milkshake/milkshake.module" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,21 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="legalagree.info" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.info">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="legalagree.module" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+            <state relative-caret-position="48">
+              <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="30" />
               <folding>
                 <element signature="e#6#813#0#PHP" expanded="true" />
               </folding>
@@ -49,11 +30,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.module" pinned="false" current-in-tab="true">
+      <file leaf-file-name="authdave.info" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.info">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authdave.module" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beep.info" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/beep/beep.info">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.module" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/user/user.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="127" column="6" lean-forward="true" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+            <state relative-caret-position="504">
+              <caret line="2238" column="32" lean-forward="false" selection-start-line="2238" selection-start-column="32" selection-end-line="2238" selection-end-column="32" />
               <folding>
                 <marker date="1539124957000" expanded="true" signature="11280:11332" ph="SELECT uid F... authmap" />
                 <marker date="1539124957000" expanded="true" signature="13558:13670" ph="SELECT r.rid... role" />
@@ -86,8 +97,8 @@
       <file leaf-file-name="loginhistory.module" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="36" />
+            <state relative-caret-position="195">
+              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
               <folding>
                 <element signature="e#6#66#0#PHP" expanded="true" />
                 <marker date="1539356189000" expanded="true" signature="545:598" ph="select count... login_history" />
@@ -116,16 +127,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="markednode.info" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/markednode/markednode.info">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="profile.module" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/profile/profile.module">
           <provider selected="true" editor-type-id="text-editor">
@@ -144,21 +145,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bunny.info" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/bunny/bunny.info">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>system_admin_menu_block_page</find>
       <find>field_name</find>
       <find>annotate_admin_settings</find>
       <find>annotate_deletion</find>
@@ -186,6 +176,7 @@
       <find>user_load</find>
       <find>user_view_alter</find>
       <find>summary</find>
+      <find>Sorry, unrecognized username or password</find>
       <find>user_view_page</find>
       <find>user_profile_item</find>
     </findStrings>
@@ -193,11 +184,11 @@
       <replace />
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/modules</dir>
       <dir>$PROJECT_DIR$/sites/all/modules/custom/annotate</dir>
       <dir>$PROJECT_DIR$/modules/blog</dir>
       <dir>$PROJECT_DIR$/modules/profile</dir>
       <dir>$PROJECT_DIR$/modules/user</dir>
+      <dir>$PROJECT_DIR$/modules</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -234,6 +225,8 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.info" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.install" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/authdate/authdate.info" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.module" />
       </list>
     </option>
   </component>
@@ -304,18 +297,6 @@
             <path>
               <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
               <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="profile" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="profiles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -351,16 +332,7 @@
               <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="custom" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="annotate" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drupal71" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="sites" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="custom" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="article" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="authdave" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="drupal71" type="b2602c69:ProjectViewProjectNode" />
@@ -481,7 +453,7 @@
       <workItem from="1538922875598" duration="7836000" />
       <workItem from="1539005911295" duration="6933000" />
       <workItem from="1539076510098" duration="8191000" />
-      <workItem from="1539350726562" duration="3771000" />
+      <workItem from="1539350726562" duration="6543000" />
     </task>
     <task id="LOCAL-00001" summary="menufub">
       <created>1539199297258</created>
@@ -501,7 +473,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48242000" />
+    <option name="totallyTimeSpent" value="51014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="178" y="85" width="2048" height="1193" extended-state="0" />
@@ -545,49 +517,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/beep/beep.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/comment/comment.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="217" column="23" lean-forward="false" selection-start-line="217" selection-start-column="18" selection-end-line="217" selection-end-column="23" />
-          <folding>
-            <marker date="1536699512000" expanded="true" signature="10367:10422" ph="SELECT COUNT... comment" />
-            <marker date="1536699512000" expanded="true" signature="18439:18564" ph="SELECT COUNT... comment" />
-            <marker date="1536699512000" expanded="true" signature="19236:19242" ph=" " />
-            <marker date="1536699512000" expanded="true" signature="41422:41490" ph="SELECT comme... node_comment_statistics" />
-            <marker date="1536699512000" expanded="true" signature="43614:43769" ph="SELECT nid, node_comment_statistics" />
-            <marker date="1536699512000" expanded="true" signature="45092:45134" ph="SELECT cid F... comment" />
-            <marker date="1536699512000" expanded="true" signature="45662:45765" ph="SELECT rid, role_permission" />
-            <marker date="1536699512000" expanded="true" signature="47003:47059" ph="SELECT MAX(c... node_comment_statistics" />
-            <marker date="1536699512000" expanded="true" signature="47422:47490" ph="SELECT comme... node_comment_statistics" />
-            <marker date="1536699512000" expanded="true" signature="48512:48558" ph="SELECT c.cid... comment" />
-            <marker date="1536699512000" expanded="true" signature="51599:51649" ph="SELECT MAX(t... comment" />
-            <marker date="1536699512000" expanded="true" signature="52483:52557" ph="SELECT MAX(t... comment" />
-            <marker date="1536699512000" expanded="true" signature="55562:55604" ph="SELECT cid F... comment" />
-            <marker date="1536699512000" expanded="true" signature="59131:59226" ph="SELECT COUNT... comment" />
-            <marker date="1536699512000" expanded="true" signature="84481:84551" ph="SELECT COUNT... comment" />
-            <marker date="1536699512000" expanded="true" signature="84715:84816" ph="SELECT cid, comment" />
-            <marker date="1536699512000" expanded="true" signature="85352:85400" ph="SELECT uid, node" />
-            <marker date="1536699512000" expanded="true" signature="87988:88034" ph="SELECT subje... comment" />
-            <marker date="1536699512000" expanded="true" signature="88766:88812" ph="SELECT subje... comment" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/comment/comment.admin.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="114" column="4" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="115" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -951,16 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding>
-            <element signature="e#6#813#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/markednode/markednode.info">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1009,21 +928,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.module">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/beep/beep.info">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="e#6#66#0#PHP" expanded="true" />
-            <marker date="1539356189000" expanded="true" signature="545:598" ph="select count... login_history" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/user/user.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="127" column="6" lean-forward="true" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+        <state relative-caret-position="504">
+          <caret line="2238" column="32" lean-forward="false" selection-start-line="2238" selection-start-column="32" selection-end-line="2238" selection-end-column="32" />
           <folding>
             <marker date="1539124957000" expanded="true" signature="11280:11332" ph="SELECT uid F... authmap" />
             <marker date="1539124957000" expanded="true" signature="13558:13670" ph="SELECT r.rid... role" />
@@ -1039,6 +963,35 @@
             <marker date="1539124957000" expanded="true" signature="118066:118106" ph="SELECT name role" />
             <marker date="1539124957000" expanded="true" signature="131328:131393" ph="SELECT uid, users" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/legalagree/legalagree.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="e#6#813#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/loginhistory/loginhistory.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="e#6#66#0#PHP" expanded="true" />
+            <marker date="1539356189000" expanded="true" signature="545:598" ph="select count... login_history" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/authdave/authdave.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
