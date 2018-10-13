@@ -1,0 +1,6 @@
+name = Ogłoszenia o prace
+description = Rodzaj zawartości ogłoszeń o prace
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = job_post.module
+files[] = job_post.install
