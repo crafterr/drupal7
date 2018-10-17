@@ -1,0 +1,234 @@
+<?php
+/**
+ * @file
+ * Przykład użycia Field API
+ */
+
+/**
+ * Implements hook_field_info().
+ */
+function color_example_field_info()
+{
+    return [
+      'color_example_rgb' => [
+          'label' => t('Kolor RGB'),
+          'description' => t('Pole zaweirające kolor RGB'),
+          'default_widget' => 'color_example_3text',
+          'default_formatter' => 'color_example_simple_text'
+      ]
+    ];
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function color_example_field_schema($field)
+{
+    $columns = [
+      'rgb' => [
+          'type' => 'varchar',
+          'length' => 7,
+          'not null' => false
+      ]
+    ];
+
+    $indexes = [
+      'rgb' => ['rgb']
+    ];
+
+    return [
+      'columns' => $columns,
+      'indexes' => $indexes
+    ];
+}
+
+
+
+/**
+ * Implements hook_field_is_empty().
+ */
+function color_example_field_is_empty($item, $field)
+{
+    return empty($item['rgb']);
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ * Wyswietla heksadecymalna wartosc wybranego koloru
+ */
+function color_example_field_formatter_info()
+{
+    return [
+      'color_example_simple_text' => [
+          'label' => t('Prosty, tekstowy formater'),
+          'field types' => ['color_example_rgb']
+      ],
+
+      'color_example_color_background' => [
+          'label' => t('Zmien kolor tla wyswietlanego tekstu'),
+          'field types' => ['color_example_rgb']
+      ]
+
+    ];
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function color_example_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display)
+{
+    $element = [];
+    switch ($display['type']) {
+        case 'color_example_simple_text':
+            foreach ($items as $delta => $item) {
+                $element[$delta]['#markup'] = '<p style="color: '.$item['rgb'].'">'.t('Kolor tego wydarzenia to: @code',['@code'=>$item['rgb']]).'</p>';
+            }
+            break;
+
+        case 'color_example_color_background':
+            foreach ($items as $delta => $item) {
+                drupal_add_css('div.region-content{background-color:' .$item['rgb'].';}',['type'=>'inline']);
+                $element[$delta]['#markup'] = '<p>'.t('Kolor tego wydarzenia to: @code',['@code'=>$item['rgb']]).'</p>';
+            }
+            break;
+    }
+    return $element;
+}
+
+/**
+ * Implements hook_field_widget_info().
+ */
+function color_example_field_widget_info()
+{
+    return [
+      'color_example_text' => [
+          'label' => t('Wartość RGB w postaci #ffffff'),
+          'field types' => ['color_example_rgb']
+      ],
+      'color_example_3text' => [
+          'label' => t('Pole tekstowe RGB'),
+          'field types' => ['color_example_rgb']
+      ],
+      'color_example_colorpicker' => [
+          'label'=>t('Wybór koloru'),
+          'field types' => ['color_example_rgb']
+      ]
+    ];
+}
+
+/**
+ * Implements hook_field_widget_form().
+ */
+function color_example_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element)
+{
+    $value = isset($items[$delta]['rgb'])? $items[$delta]['rgb']:'';
+
+    $element+= [
+        '#delta' => $delta
+    ];
+    $element['rgb'] = [];
+
+    switch ($instance['widget']['type']) {
+        case 'color_example_colorpicker': {
+            $element['rgb'] += [
+              '#surfix' => '<div class="field-example-colorpicker"></div>',
+              '#attributes' => [
+                'class'=>['edit-field-example-colorpicker'],
+              ],
+              '#attached' => [
+                //dodaj kontrolke wyboru koloru
+                'library' => [
+                    'system','farbtastic'
+                ],
+                //dodaj kod js aby wywolac kontorlke wyboru koloru
+               'js' => [
+                   drupal_get_path('module','color_example').'/color_example.js'
+               ]
+              ]
+            ];
+        }
+        case 'color_example_text': {
+            $element['rgb'] += [
+              '#title' => t('Kolor RGB wydarzenia'),
+              '#type' => 'textfield',
+              '#default_value' => $value,
+              '#size' => 7,
+              '#maxlength' => 7
+            ];
+            break;
+        }
+
+        case 'color_example_3text': {
+            //Przekonwertuj wartosc rgb na poszczegolne skladowe r g b dla wartosci domyslnej default_value
+            if (isset($items[$delta]['rgb'])) {
+                preg_match_all('@..@',substr($items[$delta]['rgb'],1),$match);
+            } else {
+                $match = [[]];
+            }
+
+
+            //obiekt typu fieldset do przechowywania trzech pol tekstowych
+            $element += [
+                '#type' => 'fieldset',
+                '#element_validate' => [
+                    'color_example_3text_validate'
+                ],
+                //Ustawienie ponizszych wartosci pozwoli funkcji walidacji na dostep do zewnetrznuch  informacji
+                '#delta' => $delta,
+                '#attached' => [
+                    'css' => [
+                        drupal_get_path('module','color_example').'/color_example.css'
+                    ]
+                ]
+            ];
+
+            //utworz pole tekstowe do reprezentowania waartosci dla kolorow red green i blue
+
+            foreach (['r'=>t('Red'),'g'=>t('Green'),'b'=>t('Blue')] as $key => $title) {
+                $element[$key] = [
+                    '#type' => 'textfield',
+                    '#title' => $title,
+                    '#size' => 4,
+                    '#default_value' => array_shift($match[0]),
+                    '#attributes' => ['class'=>['rgb-entry']],
+                    '#description' => t('Heksadecymalna wartosc koloru @color np "a1" lub "ff',['@color'=>$title])
+                ];
+            }
+            break;
+        }
+
+
+    }
+    return $element;
+}
+
+/**
+ * Waliduje pojedyncze pola i laczy wprowadzone wartosci wp ojedyncza tekstowa wartosc rgb
+ */
+function color_example_3text_validate($element, &$form_state)
+{
+    $delta = $element['#delta'];
+    $field = $form_state['field'][$element['#field_name']][$element['#language']]['field'];
+    $field_name = $field['field_name'];
+    if (isset($form_state['values'][$field_name][$element['#language']][$delta])) {
+        $values = $form_state['values'][$field_name][$element['#language']][$delta];
+    }
+    foreach (['r','g','b'] as $colorfield) {
+        $val = hexdec($values[$colorfield]);
+        //jesli wartosc jest pusta ustaw kolor na null i zakoncz dzialanie funkcji
+        if (strlen($values[$colorfield])==0) {
+            form_set_value($element,['rgb'=>null],$form_state);
+            return;
+        }
+        //jesli nie została opdana wartosc heksadecymalna odrzuc ja
+        if ((strlen($values[$colorfield]) !=2) || $val<0 || $val>255) {
+            form_error($element[$colorfield],t('Wartosc składowej musi byc liczba heksadecymalna i pochodzic z zakresu od 00 do FF'));
+        }
+
+    }
+
+    $value = sprintf('#%02s%02s%02s',$values['r'],$values['g'],$values['b']);
+    form_set_value($element,['rgb'=>$value],$form_state);
+
+
+}

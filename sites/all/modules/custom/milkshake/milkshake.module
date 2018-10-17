@@ -109,8 +109,32 @@ function milkshake_overview()
     return t('Oto dostępne smaki');
 }
 
+/**
+ * Implements hook_theme().
+ */
+function milkshake_theme()
+{
+    return [
+        'custom_view' => [
+            'variables' => [
+                'text' => null,
+                'second_param' => null,
+            ],
+            'template' => 'custom_view'
+            ]
+
+
+    ];
+}
+
 function milkshake_list($type)
 {
-    return t('Lista smaków @type',['@type'=>$type]);
 
+    $t = get_t();
+    $data = $t('Lista smaków @type',['@type'=>$type]);
+    $variables = array(
+        'text' => $data,
+        'second_param' => 'adam ma kota'
+    );
+    return theme('custom_view',$variables);
 }

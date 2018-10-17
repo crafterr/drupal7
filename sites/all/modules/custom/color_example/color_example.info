@@ -1,0 +1,5 @@
+name = Kolorowy przykład
+description = Tworzy pole pobierające i wyświetlające tekst na kolorow
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = color_example.module

@@ -28,11 +28,61 @@ function job_post_install()
     field_update_instance($body_instance);
 
     //utworz wszystkie pola ktore dodajemy do rodzaju zawartosic
-    foreach (createFields() as $field) {
+    foreach (createFields() as $field)
+    {
         field_create_field($field);
     }
+
+    //utworz wszystkie instancje naszych pol
+    foreach (createInstances() as $instance)
+    {
+        $instance['entity_type'] = 'node';
+        $instance['bundle'] = 'job_post';
+        field_create_instance($instance);
+    }
+
 }
 
+function job_post_uninstall()
+{
+    //zbierz wszystkie przykładowe treści ktore bylly utworzone przez ten modul
+   /* $sql = 'SELECT nid FROM {node} WHERE n.type=:type';
+    $result = db_query($sql,[':type'=>'job_post']);
+    $nids = [];
+    foreach ($result as $row) {
+        $nids[] = $row->nid;
+    }*/
+
+    //Usun wszystkie elementy
+    //node_delete_multiple($nids);
+
+    //Usun wszystkie instancje pól modułu ich dane i same pola
+    foreach (array_keys(createFields()) as $field) {
+        field_delete_field($field);
+    }
+
+    //usun wszystkei pozostale instancje pol przypisane do rodzaju zawartosci job_post (takie jak pole body) i usun je osobno
+    $instances = field_info_instance('node','body','job_post');
+
+    foreach ($instances as $instance_name => $instance)
+    {
+        field_delete_instance($instances);
+    }
+
+    //usun nasz rodzaj zawartosci
+    node_type_delete('job_post');
+
+    //Przeczysc wszystkie informacje w polach
+    field_purge_batch(1000);
+
+}
+
+/**
+ * Zwraca złożona tablice zawierajaca pola utworzone przez ten rodzaj zawartosci - tylko jedno pole nazwa firmy,
+ * Inne pola mozna dodac jako dodatkowe elementy tablicy
+ * @return array
+ * fields
+ */
 function createFields()
 {
     $t = get_t();
@@ -41,6 +91,30 @@ function createFields()
           'field_name' => 'job_post_company',
           'label' => $t('Firma publikująca ogłoszenia o prace'),
           'type' => 'text'
+      ]
+    ];
+}
+
+/**
+ * zwraca zlozona tablice zawierajaca instancje pol nalezacych do tego rodzaju zawartosci
+ */
+function createInstances()
+{
+    $t = get_t();
+    return [
+      'job_post_company' => [
+          'field_name' => 'job_post_company',
+          'type' => 'text',
+          'label' => $t('Firma publikująca ogłoszenia o prae'),
+          'widget' => [
+              'type' => 'textfield'
+          ],
+          'display' => [
+              'example_node_list' => [
+                  'label' => $t('Firma publikujaca ogloszenia o prace'),
+                  'type' => 'text'
+              ]
+          ]
       ]
     ];
 }

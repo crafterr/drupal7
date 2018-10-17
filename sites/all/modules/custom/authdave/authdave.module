@@ -13,7 +13,7 @@ function authdave_form_alter(&$form, &$form_state, $form_id)
 
     //check if dave begin
     if ($form_id=='user_login' || $form_id=='user_login_block') {
-        $form['#validate'][] = 'authdave_user_form_validate';
+       // $form['#validate'][] = 'authdave_user_form_validate';
     }
 }
 
@@ -25,6 +25,8 @@ function authdave_user_form_validate($form, &$form_state)
     } else {
         drupal_goto('user');
     }
+
+    drupal_goto('user');
 }
 
 /**
