@@ -1,0 +1,6 @@
+name = Custom block
+description = Custom block with own theme.
+package = My Own Module.
+core = 7.x
+version = VERSION
+files[] = my_theme_block.module

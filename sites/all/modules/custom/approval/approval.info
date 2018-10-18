@@ -1,0 +1,6 @@
+name = Potwierdzenie
+description = Bloki ułatwiające proces zatwierdzania treści oczekujących na zaakceptowanie.
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+version = VERSION
+files[] = approval.module

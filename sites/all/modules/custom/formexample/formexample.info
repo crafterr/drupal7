@@ -1,0 +1,5 @@
+name = Przykładowy formularz
+description = Przykład tworzenia formularzy w Drupalu
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = formexample.module

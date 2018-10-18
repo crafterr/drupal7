@@ -1,0 +1,177 @@
+<?php
+/**
+ * @file
+ * Zabawa z API formularzy (Form API)
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function formexample_menu()
+{
+    $items = [];
+
+    $items['formexample'] = [
+      'title' => 'Zobacz przykładowy formularz',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => ['formexample_nameform'],
+      'access callback' => true,
+      'type' => MENU_NORMAL_ITEM
+    ];
+
+    return $items;
+}
+
+/**
+ * Definicja formularza
+ */
+function formexample_nameform()
+{
+    $form['name'] = [
+        '#title' => t('Twoje imię'),
+        '#type' => 'fieldset',
+        '#description' => t('Dane personalne'),
+        '#required' => true,
+
+    ];
+
+    $form['name']['firstname'] = [
+        '#title' => t('Twoje imie'),
+        '#type' => 'textfield',
+        '#description' => t('Wprowadz swoje imie'),
+        '#required' => true,
+
+
+    ];
+
+    $form['color'] = [
+        '#title' => t('Kolor'),
+        '#type' => 'fieldset',
+        '#description' => t('Ten zestaw pól zawiera pole kolor'),
+        '#collapsible' => true,
+        '#collapsed' => false,
+        '#prefix' => '<hr/>',
+        '#suffix' => '<div class="privacy-warning">'.t('Ta informacja będzie ogólnie dostepna').'</div>',
+
+    ];
+
+    $form['color_options'] = [
+        '#type' => 'value',
+        '#value' => [t('Czerwony'),t('Zielony'),t('Niebieski')]
+    ];
+
+    $form['color']['favorite_color'] = [
+        '#title'=> t('Ulubiony kolor'),
+        '#type' => 'select',
+        '#description' => t('Wybierz ulubiony kolor'),
+        '#options' => $form['color_options']['#value'],
+
+    ];
+
+    $form['name']['country'] = [
+        '#type' => 'textfield',
+        '#title' => t('Państwo'),
+        '#description' => t('Wprowadz nazwe swojego panstwa')
+    ];
+
+    //utworz zastepnik jego wartosc zostanie przypisana w trakcje walidacji
+    $form['country_code'] = [
+        '#type' => 'value',
+        '#value' => ''
+    ];
+
+    $form['#tree'] = false;
+
+    $form['submit'] = [
+        '#type' => 'submit',
+        '#value' => t('Wyślij')
+    ];
+
+
+    return $form;
+}
+
+function formexample_theme()
+{
+    return [
+      'formexample_nameform' => [
+          'render element' => 'form',
+          'path' => drupal_get_path('theme', 'grayscale') . '/templates',
+          'template' => 'my-form'
+      ],
+
+    ];
+}
+
+
+/**
+ * Przypisz element formularza do zmiennych dzieki czemu skórka może wykorzystać je do kontroli sposobu wyświetlania
+ * elementów formularzy w efekcie wyświetli cały form
+ */
+/*function template_preprocess_formexample_nameform(&$variables)
+{
+    $variables['formexample_nameform'] = [];
+    $hidden = [];
+    //Przypisz zmienne korzystające z kluczy będących nazwami pół wtedy skórka może wyświetlić każdy element osobno
+    foreach (element_children($variables['form']) as $key)
+    {
+        $type = $variables['form'][$key]['#type'];
+        if ($type == 'hidden' || $type=='token') {
+            $hidden[] = drupal_render($variables['form'][$key]);
+        }
+        else {
+            $variables['formexample_nameform'][$key] = drupal_render($variables['form'][$key]);
+        }
+    }
+    //Ukryte pola formu nie są istotne dla skórki nie trzeba wiec ich oddzielac
+    $variables['formexample_nameform']['hidden'] = implode($hidden);
+    //Zbierz wszystkei elementy formu w celu ułatwienia wyświetlania całego formularza
+    $variables['formexample_nameform_form'] = implode($variables['formexample_nameform']);
+    $variables['dupa'] = 'adam ma dupe';
+}*/
+
+
+/**
+ * @param $form
+ * @param $form_state
+ */
+function formexample_nameform_validate($form,&$form_state) {
+
+
+    if ($form_state['values']['firstname']=='Adam') {
+        form_set_error('firstname',t('Niestety rafal nie masz prawa glosu'));
+    }
+
+
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function formexample_form_user_login_alter(&$form, &$form_state, $form_id)
+{
+   // if ($form_id =='user_login_block' || $form_id=='user_login')
+    //{
+        $form['warning'] = [
+          '#markup' => t('Odnotowujemy wszystkie proby logowania'),
+          '#weight' => -5
+        ];
+
+        $form['actions']['submit']['#value'] = t('Wyjdź');
+   // }
+}
+
+
+function formexample_nameform_submit($form,&$form_state)
+{
+
+   $name = $form_state['values']['firstname'];
+   $color_key = $form_state['values']['favorite_color'];
+   $color = $form_state['values']['color_options'][$color_key];
+
+
+   drupal_set_message(t('Dziekujemy Ci %name',['%name'=>$name]));
+    drupal_set_message(t('Wybrałeś kolor %color',['%color'=>$color]));
+    //$form_state['redirect'] = 'node/3';
+
+}

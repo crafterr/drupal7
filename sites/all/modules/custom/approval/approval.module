@@ -1,0 +1,132 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function approval_block_info()
+{
+    $blocks['pending_comments'] = [
+      'info' => t('Odpowiedzi oczekujące'),
+      'status' => true,
+      'region' => 'sidebar_first',
+      'weight' => 0,
+      'visibility' => 1
+    ];
+
+
+    $blocks['unpublished_nodes'] = [
+      'info' => t('Segmenty nieopublikowane'),
+      'status' => true,
+      'region' => 'sidebar_first',
+      'weight' => 0,
+      'visibility' => 1
+    ];
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function approval_block_configure($delta = '')
+{
+    $form = [];
+    switch ($delta) {
+        case 'pending_comments':
+            $form['pending_comment_count'] = [
+              '#type' => 'textfield',
+              '#title' => t('Wprowadź liczbe wyświetlanych odpowiedzi'),
+              '#size' => 6,
+              '#description' => t('Wprowadź liczbę oczekujących odpowiedzi które będą wyświetlane w bloku'),
+              '#default_value' => variable_get('pending_comment_count',5)
+            ];
+            break;
+
+        case 'unpublished_nodes':
+            $form['unpublished_nodes_count'] = [
+              '#type' => 'textfield',
+              '#title' => t('Wprowadź liczbe segmentów do wyswietlenia'),
+              '#size' => 6,
+              '#description' => t('Wprowadź liczbę segmentów do wyświetlenia które będą wyświetlane w bloku'),
+              '#default_value' => variable_get('unpublished_nodes_count',5)
+            ];
+
+            break;
+    }
+
+    return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function approval_block_save($delta = '', $edit = array())
+{
+    switch ($delta) {
+        case 'pending_comments':
+            variable_set('pending_comment_count',(int) $edit['pending_comment_count']);
+            break;
+        case 'unpublished_nodes':
+            variable_set('unpublished_nodes_count', (int) $edit['unpublished_nodes_count']);
+            break;
+    }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function approval_block_view($delta = '')
+{
+    switch ($delta) {
+        case 'pending_comments':
+            $block['subject'] = t('Odpowiedzi oczekujące');
+            $block['content'] = approval_block_contents($delta);
+            return $block;
+            break;
+
+        case 'unpublished_nodes':
+
+            $block['subject'] = t('Segmenty nieopublikowane');
+            $block['content'] = approval_block_contents($delta);
+            return $block;
+            break;
+    }
+}
+
+
+function approval_block_contents($delta)
+{
+    switch ($delta) {
+        case 'pending_comments':
+
+            if (user_access('administer comments')) {
+                $nbr_comments = variable_get('pending_comment_count',5);
+
+                $result = db_query("SELECT cid, subject FROM {comment} where status = 0 limit $nbr_comments");
+
+                $items = [];
+                foreach ($result as $row) {
+                    $items[] = l($row->subject,'comment/'.$row->cid.'/edit');
+                }
+
+                return ['#markup' => theme('item_list',['items'=>$items])];
+            }
+            break;
+
+        case 'unpublished_nodes':
+
+            if (user_access('administer nodes')) {
+                $nbr_nodes = variable_get('unpublished_nodes_count',5);
+                $result = db_query_range('SELECT nid, title FROM {node} WHERE status = 0',0,$nbr_nodes);
+                $items = [];
+                foreach ($result as $row) {
+                    $items[] = l($row->title,'node/'.$row->nid.'/edit');
+                }
+                return ['#markup' => theme('item_list',['items'=>$items])];
+            }
+            break;
+    }
+}

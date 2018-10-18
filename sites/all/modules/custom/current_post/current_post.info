@@ -1,0 +1,6 @@
+name = Current Posst Module with configuration
+description = Current Posst Module with configuration.
+package = My Own Module.
+core = 7.x
+version = VERSION
+files[] = current_post.module
