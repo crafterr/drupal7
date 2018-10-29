@@ -1,0 +1,5 @@
+name = Przykładowy formularz dynamiczny
+description = Przykład tworzenia formularzy w Drupalu
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = form_example_dynamic.module

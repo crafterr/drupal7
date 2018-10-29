@@ -1,0 +1,7 @@
+name="Tavish's Poutine Maker"
+description="Custom field for custom poutines"
+core=7.x
+package="crafter"
+files[] = poutinemaker.toppings.inc
+files[] = poutinemaker.module
+files[] = poutinemaker.install

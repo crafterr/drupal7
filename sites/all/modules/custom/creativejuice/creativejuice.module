@@ -1,0 +1,84 @@
+<?php
+/**
+ * @file
+ * Modul ktory pomaga poczatkujacym pisarzom wstawiac do ich wpisow losowo wybrane zdania
+ */
+
+/**
+ * Implements hook_filter_info().
+ */
+function creativejuice_filter_info()
+{
+    $filters = [];
+
+    $filters['creativejuice'] = [
+        'title' => 'Filtr losujący zdanie',
+        'description' => t('Pozwala userom na wstawianie lsoowo wybranych zdan do swoich wpisow'),
+        'process callback' => '_creativejuice_filter_process',
+        'tips callback' => '_creativejuice_filter_tips'
+    ];
+
+    return $filters;
+}
+
+/**
+ * Wywolanie zwrotne przetwarzania filtru, ponizsza funkcja wykonuje filtrowanie. Zwracana wartosc powinna zawierac przetworzony tekst wejsciowy
+ */
+function _creativejuice_filter_process($text,$filter,$format)
+{
+    while (strpos($text,'[inspiruj!]') !== FALSE) {
+        $sentence = creativejuice_sentence();
+        $text = preg_replace('&\[inspiruj!\]&',implode(' ',$sentence),$text,1);
+    }
+    return $text;
+}
+
+/**
+ * Zwroc losowe zdanie
+ */
+function creativejuice_sentence()
+{
+    $beginnings = [];
+    $beginnings[] = t('Głęboko wierzył że ');
+    $beginnings[] = t('Głośno myslal ');
+    $beginnings[] = t('Nie spał od dawna ');
+    $beginnings[] = t('Nie wiedział czemu ');
+    $beginnings[] = t('Wydawać by sie mogło że ');
+
+    $middle = [];
+
+    $middle[] = t('życie toczyło się własnym życiem ');
+    $middle[] = t('wertował słownik ');
+    $middle[] = t('słyszał bardzo cichy acz wyczuwalny trzepot skrzydeł ');
+    $middle[] = t('żył skromnie jak pustelnik ');
+    $middle[] = t('nie bal się spać ');
+
+    $end = [];
+
+    $end[] = t('pogrązone w otchłaniach biurokracji');
+    $end[] = t('choc był głuchy jak pień');
+    $end[] = t('ale tragiczny był jego los');
+    $end[] = t('niczym ślepy jak pies');
+    $end[] = t('niczym łysa fretka');
+
+    $sentence = [
+        $beginnings[array_rand($beginnings,1)],
+        $middle[array_rand($middle,1)],
+        $end[array_rand($end,1)]
+    ];
+
+    return $sentence;
+
+
+}
+
+function _creativejuice_filter_tips($filter,$format,$long = false)
+{
+    if ($long) {
+        return t('filter przypływ weny twórczej bedzie dla ciebie prawdziwym zbawieniem gdy poczujesz ze twoj mozg nie jest zdolny do stworzenia czegos unikatowego
+                        poprostu wpisz [inspiruj!] w tresci swoich wpisow');
+    } else {
+        return t('Ciąg <em>[inspiruj!]</em> jest zastępwany lsoowo wygenerowanymi zdaniami');
+    }
+
+}

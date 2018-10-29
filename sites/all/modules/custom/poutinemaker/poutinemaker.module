@@ -1,0 +1,46 @@
+<?php
+/**
+ * @file
+ *
+ * Defines a custom field for constructing a custom poutine.
+ */
+
+module_load_include('inc', 'poutinemaker', 'poutinemaker.toppings');
+
+/**
+ * Implements hook_field_info().
+ *
+ * Here we tell Drupal about our custom fields. In this case
+ * we only have one. Its machine-readable name is 'poutinemaker_poutine'
+ * because the convention is 'modulename_fieldname'.
+ *
+ * We also define the machine names of the widget and the formatter.
+ */
+function poutinemaker_field_info() {
+    return array(
+        'poutinemaker_poutine' => array(
+            'label' => t('Custom Poutine'),
+            'description' => t('Custom Poutine Field'),
+            'default_widget' => 'poutinemaker_poutine_widget',
+            'default_formatter' => 'poutinemaker_poutine_formatter',
+        ),
+    );
+}
+
+/**
+ * Implements hook_field_widget_info().
+ *
+ * Here we tell Drupal about our custom widgets. In this
+ * case we only have one. As with poutinemaker_field_formatter_info(),
+ * we tell Drupal which fields our widget works with (in this case, just
+ * 'poutinemaker_poutine').
+ */
+function poutinemaker_field_widget_info() {
+    return array(
+        'poutinemaker_poutine_widget' => array(
+            'label' => t('Default'),
+            'field types' => array('poutinemaker_poutine'),
+        ),
+    );
+}
+

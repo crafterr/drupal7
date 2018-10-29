@@ -1,0 +1,5 @@
+name = Przypływ weny twórczej
+description = Zastosowuje do tresci filtr losowych zdan
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = createjuice.module

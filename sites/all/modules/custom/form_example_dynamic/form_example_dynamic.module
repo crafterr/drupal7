@@ -1,0 +1,216 @@
+<?php
+/**
+ * @file
+ * Przykład użycia nowego elementu Form API - #states.
+ * Pozwala on na dodawanie dynamicznych zachowań w bardzo prosty sposób
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function form_example_dynamic_menu()
+{
+    $items = [];
+    $items['form_example_dynamic'] = [
+        'title' => t('Przykład dynamicznego formularza'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => ['form_example_dynamic_form'],
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => true
+    ];
+
+    return $items;
+}
+
+function form_example_dynamic_form($form, &$form_state)
+{
+    $form['room_type'] = [
+        '#type' => 'radios',
+        '#options' => drupal_map_assoc([t('Gabinet'),t('Mała sala konferencyjna'),t('Duża sala konferencyjna')]),
+        '#title' => t('Jaki rodzaj pomieszczeń potrzebujesz?')
+    ];
+
+    $form['study_room'] = [
+        '#type' => 'fieldset',
+        '#title' => t('Gabinet - szczególowe informacje'),
+        '#states' => [
+            'visible' => [
+                ':input[name="room_type"]' => ['value'=>t('Gabinet')]
+             ]
+        ]
+    ];
+
+    $form['study_room']['equipment'] = [
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc([t('Krzesła'),t('PC')]),
+        '#title' => t('Proszę wybrać niezbędne elementy wyposażenia'),
+        //'#access'=> user_access('administer nodes'),
+        '#states' => [
+            'visible' => [
+                ':input[name="room_type"]' => ['value'=>t('Gabinet')]
+            ]
+        ]
+    ];
+
+    $form['stuty_room']['chairs'] = [
+        '#type' => 'textfield',
+        '#title' => t('Proszę podać liczbę krzeseł w gabinecie'),
+        '#size' => 4,
+        '#states' => [
+            'visible' => [
+                ':input[name="equipment[Krzesła]"]' => ['checked'=>true]
+            ]
+        ]
+    ];
+
+    $form['stuty_room']['pc'] = [
+        '#type' => 'textfield',
+        '#title' => t('Proszę określić wymagania dotyczące kompa'),
+        '#size' => 15,
+        '#states' => [
+            'visible' => [
+                ':input[name="equipment[PC]"]' => ['checked'=>true]
+            ]
+        ]
+    ];
+
+    $form['small_conference_room'] = [
+        '#type' => 'fieldset',
+        '#title' => t('Mała sala konferencyjna - Informacja'),
+        '#states' => [
+            'visible' => [
+                ':input[name="room_type"]' => [t('Mała sala konferencyjna')]
+            ]
+        ]
+
+    ];
+
+    $form['small_conference_room']['how_many_pcs'] = [
+        '#type' => 'select',
+        '#title' => t('Proszę określić liczbę komputerów PC w sali:'),
+        '#options' => [
+            1=> t('Jeden'),
+            2=>t('Dwa'),
+            3=>t('Trzy'),
+            4=>t('Cztery'),
+            5=>t('Więcej')
+        ]
+    ];
+
+    $form['small_conference_room']['comment'] = [
+        '#type'=>'item',
+        '#description' => t('To zajmię trochę czasu'),
+        '#states' => [
+            'visible' => [
+                ':input[name="how_many_pcs"]'=> ['value'=>'5']
+            ]
+        ]
+    ];
+
+    $form['small_conference_room']['room_name'] = [
+        '#type' => 'textfield',
+        '#title' => t('Proszę określić nazwę pokoju z którego chce Pan skorzystac'),
+    ];
+
+    $form['small_conference_room']['hours'] = [
+        '#type' => 'select',
+        '#options' => drupal_map_assoc([t('Za darmo'),t('Płatny'),t('Półpłatny')]),
+        '#title' => t('Czy chce Pan/Pani zarezerwować pokój gdy nie ma opłat lub w dowolnym momencie (za dodatkową opłatną')
+    ];
+
+    $form['small_conference_room']['hours_writein'] = [
+        '#type' => 'textfield',
+        '#size' => 50,
+        '#title' => t('Proszę wprowadzić datę rezerwacji a także czas jej trwania'),
+        '#states' => [
+            'visible' => [
+                [
+                    [':input[name="hours"]'=>['value'=>t('Za darmo')]],
+                    'or',
+                    [':input[name="hours"]'=>['value'=>t('Płatny')]]
+                ]
+            ]
+
+        ]
+    ];
+
+    $form['small_conference_room']['reminder'] = [
+      '#type' => 'item',
+      '#description' => t('Proszę wprowadzić datę i czas rozpoczecia i czas zakończenia'),
+      '#states' => [
+          'visible' => [
+              [
+                  [':input[name="hours"]'=>['value'=>t('Za darmo')]],
+                  'or',
+                  [':input[name="hours"]'=>['value'=>t('Płatny')]],
+                  'or',
+                  [':input[name="hours_writein"]' => ['filled'=>true]]
+              ]
+          ]
+      ]
+    ];
+
+    $form['board_room'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Duża sala konferencyjna - informacja'),
+      '#states' => [
+          'visible' => [
+              ':input[name="room_type"]'=> ['value'=>t('Duża sala konferencyjna')]
+          ]
+      ]
+    ];
+
+    $form['board_room']['more_info'] = [
+      '#type' => 'textarea',
+      '#title' => t('Proszę wprowadzić datę rezerwacji dużej sali'),
+
+    ];
+
+    $form['board_room']['info_provide'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Prosze zaznaczyc jesli powzyej zostaly wprowadzone informacje'),
+      '#disabled' => true,
+      '#states' => [
+          'checked' => [
+              ':input[name="more_info"]' => ['filled'=>true]
+          ]
+      ]
+    ];
+
+    $form['expand_more_info'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Proszę zaznaczyć to pole jeśli chce pani uwzglednic specialne warunki'),
+
+    ];
+
+    $form['more_info'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Specialne instrukcje'),
+      '#collapsible' => true,
+      '#collapsed' => true,
+      '#states' => [
+          'expanded' => [
+              ':input[name="expand_more_info"]'=>['checked'=>true]
+          ]
+      ]
+    ];
+
+    $form['more_info']['feedback'] = [
+      '#type' => 'textarea',
+      '#title' => t('Prosze podac ewentualne dodatkowe informacje')
+    ];
+
+    $form['submit'] = [
+        '#type' => 'submit',
+        '#value' => 'Wyslij'
+    ];
+
+
+
+    return $form;
+}
+
+function form_example_dynamic_form_submit($form, &$form_state) {
+    //var_dump($form_state['values']); die();
+    drupal_set_message(t('Wysyłanie informacji: @values',['@values'=>var_export($form_state['values'],true)]));
+}

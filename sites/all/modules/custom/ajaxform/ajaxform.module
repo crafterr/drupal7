@@ -1,0 +1,85 @@
+<?php
+/**
+ * @file
+ */
+
+function ajaxform_menu()
+{
+    $items = [];
+    $items['ajaxform'] = [
+        'title' => t('Przykład  formularza ajaxowego'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => ['ajaxform_form'],
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => true
+    ];
+
+    return $items;
+}
+
+function ajaxform_form($form,&$form_state)
+{
+    //Pobierz liste producentow w celu wypelnieniea listy wyboru zawartosci
+    $options_first = _automobile_get_manufacturer_dropdown_options();
+    $selected = isset($form_state['values']['manufacturer_dropdown'])? $form_state['values']['manufacturer_dropdown']: key($options_first);
+
+    $form['manufacturer_dropdown'] = [
+        '#type' => 'select',
+        '#title'=>'Marka',
+        '#options' => $options_first,
+        '#ajax' => [
+            'callback' => 'automobile_dependent_dropdown_callback',
+            'wrapper' => 'dropdown_model_replace'
+        ]
+    ];
+
+    $form['model_dropdown'] = [
+        '#type' => 'select',
+        '#title' => 'Model',
+        //caly blok tworzony w tym miejscu zostanie zasptapiony gdy wartosc pola amnufacturer_dropdown ulegnie zmianie
+        '#prefix' => '<div id="dropdown_model_replace">',
+        '#suffix' => '</div>',
+        //Podczas odbudowy formularza zmienna $selected otrzymuje nowa wartosc
+        //dlatego lista modeli musi ulec zmianie
+        '#options' => _automobile_get_model_dropdown_options($selected),
+        '#defaut_value' => isset($form_state['values']['model_dropdown'])?$form_state['values']['model_dropdown']:''
+    ];
+
+    $form['submit'] = [
+        '#type' => 'submit',
+        '#value' => 'Wyslij'
+    ];
+
+    return $form;
+}
+
+function automobile_dependent_dropdown_callback($form,&$form_state)
+{
+    return $form['model_dropdown'];
+}
+
+
+/**
+ * zwroc liste marek produccentow
+ */
+function _automobile_get_manufacturer_dropdown_options()
+{
+    return drupal_map_assoc([t('Honda'),t('Toyota'),t('Ford'),t('Volkswagen')]);
+}
+
+
+function _automobile_get_model_dropdown_options($key = '')
+{
+    $options = [
+      t('Honda') => drupal_map_assoc([t('Accord'),t('Civic'),t('CRX'),t('Pilot')]),
+      t('Toyota') => drupal_map_assoc([t('Camry'),t('Yaris'),t('Tundra')]),
+      t('Ford') => drupal_map_assoc([t('F-22'),t('Exproloer'),t('Escape')]),
+      t('Volkswagen') => drupal_map_assoc([t('GTI'),t('Passat')])
+    ];
+    if (isset($options[$key])) {
+
+        return $options[$key];
+    } else {
+        return [];
+    }
+}

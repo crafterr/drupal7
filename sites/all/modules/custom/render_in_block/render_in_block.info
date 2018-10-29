@@ -1,0 +1,5 @@
+name = Render in block
+description = Renderuje w bloku
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = render_in_block.module

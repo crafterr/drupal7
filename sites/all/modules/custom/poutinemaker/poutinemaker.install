@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Install file
+ */
+
+function poutinemaker_field_schema($field)
+{
+    module_load_include('inc','poutinemaker','poutinemaker.toppings');
+
+    $columns = [
+        'name' => [
+            'type' => 'varchar',
+            'length' => 255,
+            'not null' => true
+        ]
+    ];
+    foreach (poutine_maker_toppings() as $topping_machine => $topping) {
+        $columns[$topping_machine] = [
+            'type' => 'int',
+            'length' => 1,
+            'not null' => false
+        ];
+    }
+
+    return [
+        'columns' => $columns,
+        'indexes' => []
+    ];
+}

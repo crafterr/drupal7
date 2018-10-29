@@ -1,0 +1,137 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function form_fields_menu()
+{
+
+    $items = [];
+    $items['form_fields'] = [
+        'title' => t('Przykład  formularza = pola'),
+        'page callback' => 'drupal_get_form',
+        'page arguments' => ['form_fields_form'],
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => true
+    ];
+
+
+
+    return $items;
+}
+
+
+function form_fields_form($form, &$form_state)
+{
+    global $user;
+    $form['pet_name']= [
+      '#title' => t('Imie'),
+      '#type' => 'textfield',
+      '#description' => t('Wprowadź imie swojego zwierzaka'),
+      '#default_value' => $user->name,
+      '#maxlength'=> 32,
+      '#required' => true,
+      '#size' => 15,
+
+      '#autocomplete_path' => 'pet/common_pet_names',
+      '#field_suffix' => t('Sg')
+    ];
+
+    $options = [
+
+            t('Zdrowy') => [
+                1 => t('Machający'),
+                2 => t('Pionowy'),
+                3 => t('Brak ogona')
+            ],
+
+            t('Chory') => [
+                4 => t('Krwawiący'),
+                5 => t('Przesiąkniety')
+            ],
+
+    ];
+    $form['pet_tail'] = [
+      '#title' => t('Stan ogona'),
+      '#type' => 'select',
+      '#description' => t('Wybierz określenie które najlepiej pasuje do ogona twojego zwierzaka'),
+      '#options' => $options,
+      '#multiple' => false,
+    ];
+
+    $form['test'] = [
+        '#type' => 'value',
+        '#value' =>123
+
+    ];
+
+    $form['weight'] = [
+        '#type' => 'weight',
+        '#title' => t('Waga'),
+        '#default_value' => 0,
+        '#delta' => 10,
+        '#description'=>t('Na liście elementow')
+    ];
+
+    $form['picture'] = [
+        '#type' => 'file',
+        '#title' => t('Wysylka fotki'),
+        '#size' => 48,
+        '#description' => t('Wyslij zdjecie')
+    ];
+
+    $form['my_image_button'] = [
+        '#type' => 'image_button',
+        '#title' => t('Wysylka fotki'),
+        '#src' => 'misc'
+    ];
+
+    $default = !empty($form_state['values']['howmany_select']) ? $form_state['values']['howmany_select'] : 1;
+    $form['howmany_select'] = array(
+        '#title' => t('How many checkboxes do you want?'),
+        '#type' => 'select',
+        '#options' => array(1 => 1, 2 => 2, 3 => 3, 4 => 4),
+        '#default_value' => $default,
+        '#ajax' => array(
+            'callback' => 'ajax_example_autocheckboxes_callback',
+            'wrapper' => 'checkboxes-div',
+            'method' => 'replace',
+            'effect' => 'fade',
+        ),
+
+    );
+
+
+    $form['checkboxes_fieldset'] = array(
+        '#title' => t("Generated Checkboxes"),
+        // The prefix/suffix provide the div that we're replacing, named by
+        // #ajax['wrapper'] above.
+        '#prefix' => '<div id="checkboxes-div">',
+        '#suffix' => '</div>',
+        '#type' => 'fieldset',
+        '#description' => t('This is where we get automatically generated checkboxes'),
+    );
+
+    $form['submit'] = [
+        '#type' => 'submit',
+        '#value' => 'Wyslij'
+    ];
+
+
+    return $form;
+}
+
+function ajax_example_autocheckboxes_callback($form, $form_state) {
+
+
+    return $form['checkboxes_fieldset'];
+}
+
+function form_fields_form_submit($form, &$form_state)
+{
+  $form_state;
+    var_dump($form_state['values']); die();
+}

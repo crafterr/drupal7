@@ -1,0 +1,98 @@
+<?php
+/**
+ * @file
+ * Skorzystaj z tego modulu aby poznac dzialanie systemu menu drupala a w szczegolnosci lokalnych zadan
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function render_in_block_menu()
+{
+  $items['render_in_block'] = array(
+    'title' => 'Renderuj htmla w bloku',
+    'access callback' => true,
+    'page callback' => 'render_in_block_page',
+    'file' => 'includes/render_in_block.page.inc',
+    'type' => MENU_NORMAL_ITEM
+
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function render_in_block_block_info()
+{
+  $blocks['my_block_page'] = [
+    'info' =>t('My block Page')
+  ];
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function render_in_block_block_configure($delta = '')
+{
+  $form = [];
+
+  switch ($delta) {
+    case 'my_block_page':
+      $form['subtext'] = [
+        '#type' => 'textfield',
+        '#title' => t('Wprowadź Podtext do bloku'),
+        '#size' => 200,
+        '#description' => t('Wprowadź Podtext do bloku'),
+        '#default_value' => variable_get('subtext',t('Wprowadz tekst'))
+      ];
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function render_in_block_block_save($delta = '', $edit = [])
+{
+  switch ($delta) {
+    case 'my_block_page':
+      variable_set('subtext',$edit['subtext']);
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function render_in_block_theme($existing, $type, $theme, $path) {
+  $module_path = drupal_get_path('module','render_in_block');
+  $base = [
+    'path' => $module_path.'/theme/'
+  ];
+
+  return [
+    'render_in_block_page_block' => $base +[
+      'template' => 'page_block',
+      'variables' => ['data'=>NULL]
+    ]
+  ];
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function render_in_block_block_view($delta = '') {
+  switch ($delta) {
+    case 'my_block_page':
+      //zaladuj block
+      module_load_include('inc','render_in_block','includes/blocks/my_block_page');
+      return render_in_block_render_block();
+  }
+
+  return false;
+}
