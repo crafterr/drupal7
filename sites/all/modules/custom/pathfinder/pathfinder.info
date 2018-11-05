@@ -1,0 +1,6 @@
+name = Wyszukiwarka sciezek
+description = Moduł pozwala administratorom na wyszukiwanie aliasów URL.
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+dependencies[] = path
+files[] = pathfinder.module

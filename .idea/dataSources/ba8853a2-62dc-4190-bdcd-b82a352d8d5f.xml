@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="cmsusers">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="drupal71">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="drupal8_1">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="1" name="drupal8_cookbook">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="6" parent="1" name="drupaldev">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="1" name="drupalthemocto">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="8" parent="1" name="elderycare">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="9" parent="1" name="information_schema">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="10" parent="1" name="jaaqob">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="11" parent="1" name="lancerto">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="12" parent="1" name="magento1">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="13" parent="1" name="magento18">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="14" parent="1" name="magento2">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="15" parent="1" name="magento2devel">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="16" parent="1" name="magentopackt">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="17" parent="1" name="mamaija">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="18" parent="1" name="mojmag">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="19" parent="1" name="mysql">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="20" parent="1" name="performance_schema">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="21" parent="1" name="projectsym">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="22" parent="1" name="roledemo">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="23" parent="1" name="wordpressbuilder">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="24" parent="1" name="zadrekrut">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="25" parent="1" name="zadrekrutdev">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="26" parent="1" name="zend3tutorial">
+      <Visible>1</Visible>
+    </schema>
+    <schema id="27" parent="1" name="zendusermanager">
+      <Visible>1</Visible>
+    </schema>
+    <table id="28" parent="2" name="users"/>
+    <column id="29" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="28" name="firstname">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="28" name="lastname">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="28" name="address">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="28" name="username">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="28" name="password">
+      <Position>6</Position>
+      <DataType>char(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="28" name="email">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="36" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

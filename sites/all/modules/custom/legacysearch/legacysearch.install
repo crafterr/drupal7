@@ -1,0 +1,54 @@
+<?php
+function legacysearch_install() {
+  $fields = [
+    'id' => 1,
+    'title' => 'Emulator Web 1.0 ',
+    'note' => '<p>Ten produkt pozwoli Ci na sprzętową emulację znacznika blink...wspaniały prezent! </p>',
+    'last_modified' => 1172502517];
+
+  db_insert('technote')->fields($fields)->execute();
+
+  $fields = [
+    'id' => 2,
+    'title' => 'Gąbczasty Debugger',
+    'note' => '<p>W pełni funkcjonalny debugger umieszczony wewnątrz gąbczasto-żelowej skrzynki. Wbudowany procesor ARM ogrzewa...</p>',
+    'last_modified' => 1172502517
+  ];
+
+  db_insert('technote')->fields($fields)->execute();
+
+}
+
+function lagacysearch_uninstall() {
+  drupal_uninstall_schema('legacysearch');
+}
+
+function legacysearch_schema()
+{
+  $schema['technote'] = array(
+    'description' => t('Baza danych zawierająca przykładowe rekordy.'),
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => t("Identyfikator notki."),
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => t("Tytuł notki."),
+      ),
+      'note' => array(
+        'type' => 'text',
+        'description' => t('Treść notki.'),
+      ),
+      'last_modified' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'description' => t('Uniksowy znacznik czasu ostatniej modyfikacji. '),
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}

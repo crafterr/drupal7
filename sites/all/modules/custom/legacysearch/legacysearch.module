@@ -1,0 +1,97 @@
+<?php
+/**
+ * @file
+ * Umożliwia przeszukiwanie treści spoza Drupala.
+ */
+
+/**
+ * Implementacja haka hook_search_info()
+ */
+function legacysearch_search_info() {
+  return array(
+    'title' => 'Notki techniczne',
+  );
+}
+
+/**
+ * Implementacja haka hook_search_reset()
+ */
+function legacysearch_search_reset() {
+  variable_del('legacysearch_cron_last_change');
+  variable_del('legacysearch_cron_last_id');
+  return;
+}
+
+/**
+ * Funkcja wywoływana przy zakończeniu przebudowy indeksu.
+ * Zapamiętujemy w niej ostatni przetworzony element.
+ */
+function legacysearch_update_shutdown() {
+  global $last_change, $last_id;
+  if ($last_change && $last_id) {
+    variable_set('legacysearch_cron_last_change', $last_change);
+    variable_set('legacysearch_cron_last_id', $last_id);
+  }
+
+}
+
+/**
+ * Implementacja haka hook_update_index().
+ */
+function legacysearch_update_index() {
+  global $last_change, $last_id;
+  register_shutdown_function('legacysearch_update_shutdown');
+  $last_id = variable_get('legacysearch_cron_last_id', 0);
+  $last_change = variable_get('legacysearch_cron_last_change', 0);
+  db_set_active('legacy');
+  $result = db_query("SELECT id, title, note, last_modified FROM {technote} WHERE id > :last_id OR
+􀂴last_modified > :last_change",
+    array(':last_id' => $last_id, ':last_change' => $last_change));
+  db_set_active('default');
+  foreach($result as $data) {
+    $last_change = $data->last_modified;
+    $last_id = $data->id;
+    $text = '<h1>' . check_plain($data->title) . '</h1>' . $data->note;
+    search_index($data->id, 'technote', $text);
+    variable_set('legacysearch_cron_last', $data->last_modified);
+    variable_set('legacysearch_cron_last_id', $data->id);
+  }
+}
+
+/**
+ * Implementacja haka hook_search_execute().
+ */
+function legacysearch_search_execute($keys = NULL) {
+  // Ustaw testowy adres URL do wykorzystania w hiperłączach. Gdy użytkownik kliknie takie łącze, zostanie przeniesiony
+  // do zewnętrznej witryny.
+  $legacy_url = 'http://localhost/technotes';
+  // Przygotuj i wywołaj zapytanie.
+  $query = db_select('search_index', 'i')->extend('SearchQuery')->extend('PagerDefault');
+  $query->join('technote', 't2', 't2.id = i.sid');
+  $query
+    ->searchExpression($keys, 'technote');
+  // Jeśli nie został zwrócony żaden wynik, zwróć pusty zbiór.
+  if (!$query->executeFirstPass()) {
+
+    // Jeśli został zwrócony przynajmniej jeden rekord, przeprowadź wyszukiwanie.
+    $found = $query
+      ->limit(10)
+      ->execute();
+    // Utwórz treść, która zostanie przekazana do indeksera.
+    foreach ($found as $item) {
+      // Pobierz wartości z zewnętrznej tabeli do wyświetlenia w zbiorze wyników.
+      db_set_active('legacy');
+      $note = db_query("SELECT * FROM {technote} where id = :sid", array(':sid' => $item->sid));
+      db_set_active('default');
+      // Sformatuj wyniki wyszukiwania.
+      $results[] = array(
+        'link' => url($legacy_url . 'note.pl', array('query' => $item->sid, 'absolute' => TRUE)),
+        'type' => t('Notka'),
+        'title' => $note->title,
+        'date' => $note->last_modified,
+        'score' => $item->score,
+        'snippet' => search_excerpt($keys, $note->note));
+    }
+    return $results;
+  }
+}

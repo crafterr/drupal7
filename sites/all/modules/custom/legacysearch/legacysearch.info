@@ -1,0 +1,6 @@
+name = Legacy Search
+description = Wyszukiwanie oparte o drupal na nie swojej bazie
+package = Drupal ​7. ​Zaawansowane ​programowanie.
+core = 7.x
+files[] = legacysearch.module
+files[] = legacysearch.install
